@@ -1,0 +1,596 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'deathrattlebb';
+	src: url('../fonts/deathrattlebb_reg.ttf') format('truetype');
+}
+
+body {
+	padding-top: 70px;
+	background-color: black;
+}
+
+.my_icon {
+	height: 46px;
+	border: none;
+	border-radius: 50%;
+}
+
+.my-footer {
+	margin-top: 30px;
+	width: 100%;
+	height: 100px;
+	background-color: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-top: 1px #3f3f3f solid;
+}
+
+.my-footer-items {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.my-footer-items p {
+	margin: 3px;
+	color: #717171;
+}
+
+.my-navbar {
+	width: 100%;
+	height: 70px;
+	background-color: rgba(0, 0, 0, 0.8);
+	backdrop-filter: blur(10px);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+}
+
+.my-navbar-items {
+	width: 100%;
+	display: flex;
+	flex-wrap: inherit;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.my-login-link {
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.my-login-link:hover {
+	color: white;
+}
+
+@media ( max-width : 768px) {
+	.your-email, .my-login-link {
+		display: none;
+	}
+}
+
+.my-logo {
+	width: 150px;
+	/* 	margin-left: 30px; */
+}
+
+.my-logo a {
+	color: white;
+	font-family: 'deathrattlebb';
+	text-decoration: none;
+	font-size: 36px;
+}
+
+.my-nav-btn-box {
+	display: flex;
+}
+
+.my-profile-btn {
+	margin-right: 15px;
+	color: white;
+	right: 0;
+	/* 	width: 300px; */
+	height: 40px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	color: white;
+}
+
+.my-profile-img {
+	aspect-ratio: auto 32/32;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+}
+
+#searchbar img {
+	margin: 3px 0 0 5px;
+}
+
+#sidebar>section {
+	width: 250px;
+	height: 50px;
+}
+
+#searchbar {
+	display: flex;
+	flex-direction: row;
+	width: 300px;
+	height: 40px;
+	margin: 0px 10px 0px 10px;
+	border: none;
+	outline: none;
+	background-color: whitesmoke;
+	border-radius: 25px;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+#searchbar .my-input {
+	width: 87%;
+	border: none;
+	outline: none;
+	background-color: whitesmoke;
+}
+
+#searchbar .my-input2 {
+	width: 75%;
+	border: none;
+	outline: none;
+	background-color: whitesmoke;
+}
+
+#searchbar i {
+	margin-left: 20px;
+	margin-top: 4px;
+	color: white;
+}
+
+.my-header-text {
+	font-family: 'deathrattlebb';
+	display: flex;
+	align-items: center;
+	height: 265px;
+	text-align: center;
+	color: white;
+	flex-direction: column;
+	justify-content: center;
+	background-image: url('../image/dark_img1.jpg');
+	background-size: cover;
+	margin-bottom: 25px;
+}
+
+.rollUp {
+	margin-top: 5px;
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	border: none;
+}
+
+.rollUp img {
+	width: 31px;
+	height: 31px;
+}
+
+.my-side-btn {
+	position: fixed;
+	bottom: 15px;
+	right: 15px;
+	display: flex;
+	flex-direction: column;
+}
+
+.my-postInfo-top {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.my-postInfo-middle {
+	display: flex;
+	flex-direction: row;
+	height: 200px;
+}
+
+.my-postInfo-img {
+	width: 300px;
+	border-right: #3f3f3f;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-right: #3f3f3f 1px solid;
+	margin: 0;
+	padding: 0;
+	border-radius: 0 0 0 5px;
+}
+
+.my-postInfo-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: inherit;
+}
+
+.my-postInfo-right {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.card-body {
+	width: 100%;
+	border: #1b2021;
+}
+
+.card {
+	background-color: inherit;
+	border: #1b2021 2px solid;
+	color: white;
+}
+
+.card-header {
+	background: linear-gradient(to right, #181818, #232526, #414141);
+	/* 	background-color: #1b2021; */
+	border-bottom: #1b2021 2px solid;
+}
+
+.my-bold {
+	font-weight: bold;
+}
+
+.my-font-small {
+	font-size: 13px;
+	color: #acacac;
+}
+
+.my-end {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+.my-end p {
+	margin: 0;
+}
+
+.my-category {
+	padding: 0;
+	display: flex;
+	justify-content: space-around;
+	display: flex;
+}
+
+.my-catrgory-box {
+	padding: 8px 3px 8px 3px;
+	height: 125px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.my-category a {
+	padding: 0;
+	text-decoration: none;
+	color: white;
+	margin: 0;
+	width: 30%;
+	height: 50px;
+	/* 	border-bottom: #3f3f3f 1px solid; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* =================  로그인 =============================================== */
+.my-err-msg {
+	margin-top: -328px;
+	position: relative;
+	left: 50%;
+    transform: translateX(-50%);
+	width: 500px;
+	font-size: 13px;
+	color: red;
+	text-align: center;
+	font-weight: bold;
+}
+.my-btn-login:hover {
+	background: #212529;
+	border: none;
+	color: white;
+}
+
+.my-logo span {
+	font-family: 'deathrattlebb';
+	color: white;
+}
+
+.my-middle {
+	width: 100%;
+	text-align: center;
+	margin: 40px 0 20px 0;
+}
+
+.my-fs1 {
+	font-size: 100px;
+}
+
+.my-login {
+	/* 	margin-top: 30px; */
+	margin-bottom: 130px;
+	width: 500px;
+	height: 400px;
+/* 		background: linear-gradient(to bottom  right, #181818, #232526, #414141); */
+	background: #1a1a1a;
+	border-radius: 20px;
+}
+
+.my-login label {
+	color: white;
+}
+
+.my-login-form {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	/* 	background: white; */
+}
+
+.my-login-form div {
+	text-align: center;
+}
+
+.my-join {
+	/* 	margin-top: 30px; */
+	margin-bottom: 130px;
+	width: 500px;
+	height: 400px;
+	background: #1a1a1a;
+	border-radius: 20px;
+}
+
+.my-input {
+	/* 	width: 350px; */
+	margin-left: 20px;
+}
+
+.my-btn-login {
+	width: 180px;
+	height: 40px;
+	border-radius: 20px;
+}
+
+.my-oauth-login a {
+	margin: 0 5px 0 5px;
+}
+
+/* =========================================== */
+.my-mr1 {
+	margin-right: 12px;
+}
+
+.my-ml1 {
+	margin-left: 12px;
+}
+
+.my-mt1 {
+	margin-top: 30px;
+}
+
+.my-mt2 {
+	margin-top: 80px;
+}
+.my-mt0 {
+	margin-top: 8px;
+}
+.my-mb1 {
+	margin-bottom: 8px;
+}
+.my-mb2 {
+	margin-bottom: 20px;
+}
+.my-mb3 {
+	margin-bottom: 35px;
+}
+
+
+.my-sb {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.my-fc-71 {
+	color: #717171;
+	text-decoration: none;
+}
+
+.my-fc-w {
+	color: white;
+	text-decoration: none;
+}
+
+p.my-fc-w {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+a.my-fc-71:hover {
+	color: white;
+}
+
+.my-cur-p {
+	cursor: pointer;
+}
+
+.my-mlr-1 {
+	margin: 0 5px 0 5px;
+}
+
+.my-scroll-no {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+img, a, button, .card-header, .my-header-text, .my-end,
+	.my-postInfo-right {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-khtml-user-select: none;
+	-o-user-select: none;
+}
+
+img {
+	-webkit-user-drag: none;
+	-khtml-user-drag: none;
+	-moz-user-drag: none;
+	-o-user-drag: none;
+}
+/* 오버라이드 */
+.page-link {
+	color: white;
+	background-color: #212529;
+	border: none;
+	margin: 0 5px 0 0;
+}
+
+.page-link:hover {
+	color: white;
+	background-color: #424649;
+	border: none;
+}
+
+.page-link:focus {
+	color: white;
+	background-color: #424649;
+	border: none;
+}
+
+.page-link.active, .active>.page-link {
+	color: white;
+	background-color: #424649;
+	border: none;
+	font-weight: bold;
+}
+
+.page-link.disabled, .disabled>.page-link {
+	background-color: #1b2021;
+	border: none;
+}
+
+/* ===================================================== 테스트*/
+.button-container-2 {
+	position: relative;
+	width: 180px;
+	height: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	transition: 0.5s;
+	border-radius: 20px;
+	
+}
+
+.button-container-2 button {
+	width: 101%;
+	height: 100%;
+/* 	background: linear-gradient(to right, silver, gray); */
+	background: linear-gradient(to right, #232526, #414141);
+	color: white;
+	-webkit-mask:
+		url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
+	mask:
+		url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
+	-webkit-mask-size: 3000% 100%;
+	mask-size: 3000% 100%;
+	border: none;
+	cursor: pointer;
+	-webkit-animation: ani2 0.7s steps(29) forwards;
+	animation: ani2 0.7s steps(29) forwards;
+/* 	추가 */
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-container-2 button:hover {
+	-webkit-animation: ani 0.7s steps(29) forwards;
+	animation: ani 0.7s steps(29) forwards;
+}
+
+.mas {
+	background: linear-gradient(to right, #8E0E00, #b31217);
+	color: #ffffff;
+	height: 99.8%;
+	position: absolute;
+	text-align: center;
+	width: 99.8%;
+	position: absolute;
+	overflow: hidden;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 	추가 */
+    border-radius: 20px;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 0.5px;
+}
+
+@-webkit-keyframes ani {from { -webkit-mask-position:00;
+	mask-position: 0 0;
+}
+
+to {
+	-webkit-mask-position: 100% 0;
+	mask-position: 100% 0;
+}
+
+}
+@keyframes ani {from { -webkit-mask-position:00;
+	mask-position: 0 0;
+}
+
+to {
+	-webkit-mask-position: 100% 0;
+	mask-position: 100% 0;
+}
+
+}
+@-webkit-keyframes ani2 {from { -webkit-mask-position:100%0;
+	mask-position: 100% 0;
+}
+
+to {
+	-webkit-mask-position: 0 0;
+	mask-position: 0 0;
+}
+
+}
+@keyframes ani2 {from { -webkit-mask-position:100%0;
+	mask-position: 100% 0;
+}
+
+to {
+	-webkit-mask-position: 0 0;
+	mask-position: 0 0;
+}
+}
