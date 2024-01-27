@@ -21,6 +21,7 @@ public class IndexController {
 	
 	@GetMapping({"","/"})
 	public String index(HttpServletRequest request, Model model, @PageableDefault(size=2, sort="id", direction = Sort.Direction.DESC) Pageable pageable) {
+		
 		model.addAttribute("boards",boardService.글목록(pageable));
 		int pageBlock = 5;
 		int currentPage = boardService.글목록(pageable).getNumber();
@@ -35,11 +36,6 @@ public class IndexController {
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
 		return "index";
-	}
-	
-	@GetMapping("backup_index")
-	public String backup_index() {
-		return "backup_index";
 	}
 	
 //	테스트 페이지

@@ -189,6 +189,40 @@ body {
 	flex-direction: column;
 }
 
+.my-side-btn-write {
+	position: fixed;
+	top: 130px;
+	left: 25px;
+	display: flex;
+	flex-direction: column;
+}
+
+.side-write {
+/* 	background: white; */
+	margin-bottom:10px;
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	font-size: 28px;
+	font-weight: bolder;
+	text-decoration: none;
+	font-family: 'deathrattlebb';
+}
+.side-write:hover {
+	color: black;
+	text-decoration: none;
+}
+
+.side-write img {
+	width: 31px;
+	height: 31px;
+}
+
 .my-postInfo-top {
 	display: flex;
 	flex-direction: row;
@@ -224,9 +258,14 @@ body {
 /* 	height: 100%; */
 	overflow: hidden;
 }
+.my-postInfo-title {
+	white-space: nowrap;
+  	overflow: hidden;
+ 	text-overflow: ellipsis;
+}
 .my-postInfo-content {
 /* 	max-width: 100%; */
-    max-height: 69px; /* 나중에 ... 처리하기 */
+    max-height: 69px;        /* 나중에 ... 처리하기 */
 /* 	text-overflow: ellipsis; */
 }
 
@@ -469,14 +508,27 @@ a.my-fc-71:hover {
 	text-align: right;
 }
 
-.my-scroll-no {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+.my-bg-warning {
+	background: linear-gradient(to right, #F7971E, #F37335);
+}
+.my-bg-danger {
+	background: linear-gradient(to right, #8E0E00, #b31217);
+}
+a.my-bg-warning:hover {
+	background: linear-gradient(to right, #ffb347, #ffcc33);
+}
+a.my-bg-danger:hover {
+	background: linear-gradient(to right, #D31027, #EA384D);
 }
 
-img, a, .card-header, .my-header-text, .my-end {
+.my-scroll-no {
+/* 	-webkit-user-select: none; */
+/* 	-moz-user-select: none; */
+/* 	-ms-user-select: none; */
+/* 	user-select: none; */
+}
+/* , a, .card-header, .my-header-text, .my-end */
+img {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -623,4 +675,119 @@ to {
 	-webkit-mask-position: 0 0;
 	mask-position: 0 0;
 }
+}
+
+/* ============================== 상세보기 =================================*/
+.my-details-body{
+	width: 850px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	
+}
+.my-details{
+	width: 850px;
+	margin: 0 0 30px 0;
+/* 	background: #666666; */
+}
+.my-details-middle{
+	padding: 30px;
+	background: #121212;
+	border-radius: 5px 5px 0 0;
+}
+.my-box-end{
+	height: 8px;
+/* 	margin-bottom: 16px; */
+	background: linear-gradient(to right, #181818, #232526, #414141);
+	border-radius: 0 0 5px 5px;
+}
+.my-box-start{
+	height: 8px;
+/* 	margin-bottom: 16px; */
+	background: linear-gradient(to right, #181818, #232526, #414141);
+	border-radius: 5px 5px 0 0;
+}
+.my-details-title{
+	color: white;
+	font-size: 36px;
+	font-weight: bold;
+}
+.my-details-info{
+	color: white;
+	font-size: 16px;
+	padding: 30px 0 40px 0;
+}
+.my-details-content{
+	color: white;
+/* 	font-size: 16px; */
+}
+.my-writer{
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+.my-writer:hover{
+	color: white;
+	text-decoration: underline;
+}
+
+/* =============================================================== 드롭다운 ==== */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 54px;
+    right: -16px;
+    background-color: #1a1a1a;
+    width: 120px;
+    z-index: 1;
+    border-radius: 5px 0 0 5px;
+}
+
+.dropdown-content a {
+    display: block;
+    margin: 16px 24px 16px 0;
+    text-align: right;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.dropdown-content a:hover {
+	
+}
+
+.dropdown-toggle.clicked .dropdown-content {
+    display: block;
+}
+
+/* ====================================================================== */
+.weather-box {
+	width: 100%;
+  	display: flex;
+}
+
+.weather-box > div {
+	flex: 1;
+/* 	border: 1px solid #ccc; */
+	box-sizing: border-box;
+	padding: 10px 0;
+	text-align: center;
+	border-radius: 8px;
+	background: linear-gradient(to bottom right, #182848, #2B32B2);
+}
+.weather-box > div > * {
+	margin: 0;
+}
+.weather2 {
+	margin: 0 16px 0 16px;
+}
+.my-row{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 }

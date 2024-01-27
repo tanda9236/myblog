@@ -29,7 +29,7 @@ public class SecurityConfig {
     	.csrf((csrfConfig) -> csrfConfig.disable())
         
     	.authorizeRequests(authorize -> authorize
-        		.antMatchers("/user/**").authenticated()
+        		.antMatchers("/user/**","/board/**").authenticated()
                 .antMatchers("/manager/**").access("hasRole('ADMIN') or hasRole('MANAGER')")
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().permitAll())

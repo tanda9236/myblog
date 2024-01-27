@@ -42,18 +42,20 @@ let index = {
 	},
 
 	deleteById: function() {
-		let id = $("#id").text();
-
-		$.ajax({
-			type: "DELETE",
-			url: "/api/board/" + id,
-			dataType: "json"
-		}).done(function(resp) {
-			alert('삭제가 완료되었습니다.');
-			location.href = "/";
-		}).fail(function(error) {
-			alert(JSON.stringify(error));
-		});
+		if (confirm("정말로 삭제하시겠습니까?\n( 복구할 수 없습니다 )")) {
+			let id = $("#id").text();
+	
+			$.ajax({
+				type: "DELETE",
+				url: "/api/board/" + id,
+				dataType: "json"
+			}).done(function(resp) {
+				alert('삭제가 완료되었습니다.');
+				location.href = "/";
+			}).fail(function(error) {
+				alert(JSON.stringify(error));
+			});
+		}
 	},
 
 	update: function() {
@@ -61,7 +63,7 @@ let index = {
 
 		let data = {
 			title: $("#title").val(),
-			content: $("#content").val()
+			content: $("#summernote").val()
 		};
 
 		$.ajax({
@@ -77,7 +79,7 @@ let index = {
 			alert(JSON.stringify(error));
 		});
 	},
-
+/////////////////////////////////////////////////////////////////////////////////
 	replySave: function() {
 		let data = {
 			userId: $("#userId").val(),
