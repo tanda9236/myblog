@@ -1,0 +1,57 @@
+package com.tanda.myblog.model;
+
+import java.sql.Timestamp;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+public class Reply {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@Lob
+	@Column(columnDefinition = "LONGTEXT") 
+	private String content;
+	
+	@ManyToOne
+	@JoinColumn(name="boardId")
+	private Board board;
+	
+	@ManyToOne
+	@JoinColumn(name="userId")
+	private User user;
+	
+	@CreationTimestamp
+	private Timestamp createDate;
+	
+}
+
+
+
+
+
+
+
+
+
+

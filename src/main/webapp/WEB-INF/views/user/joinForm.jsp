@@ -33,7 +33,6 @@
 						<span class="mas">회원가입</span>
 						<button>회원가입</button>
 					</div>
-<!-- 					<button class="my-btn-login my-mb1 my-scroll-no">회원가입</button> -->
 				</div>
 
 				<div class="my-sb my-scroll-no">

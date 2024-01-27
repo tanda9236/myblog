@@ -50,7 +50,6 @@
 </div>
 
 
-
 <c:if test="${not empty error}">
 	<script>
 		// 		alert("${exception}");

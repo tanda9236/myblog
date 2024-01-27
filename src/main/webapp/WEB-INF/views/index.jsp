@@ -15,9 +15,11 @@
 	<div class="row">
 		<!-- Blog entries-->
 		<div class="col-lg-8">
+		
 			<!-- Featured blog post-->
+			<c:forEach var="board" items="${boards.content}">
 			<div class="card mb-4">
-				<div class="card-header">
+				<div class="card-header my-card-header">
 					<div class="my-postInfo-top justify-content-between">
 						<div class="my-postInfo-top">
 							<img class="my-profile-img my-mr1" src="/image/no_profile_img.jpg" />
@@ -31,110 +33,65 @@
 					<div class="my-postInfo-img">
 						<img alt="" src="../image/kakao.png">
 					</div>
-					<div class="card-body">
+					<div class="card-body my-postInfo-main">
 						<div class="my-postInfo-right">
-							<div>
-								<h2 class="card-title">카카오</h2>
-								<p class="card-text">KAKAO TALK</p>
+							<div class="my-postInfo-titlecontent">
+								<h2 class="card-title my-postInfo-title">${board.title}</h2>
+								<div class="card-text my-postInfo-content">${board.content}</div>
 							</div>
 
 							<div class="my-end my-font-small">
 								<p>댓글 0 좋아요 0</p>
-								<a class="btn btn-dark my-ml1" href="#!">Read More ></a>
+								<a class="btn btn-dark my-ml1" href="#!">More ></a>
 							</div>
 						</div>
 					</div>
 				</div>
 
 			</div>
-<!-- Featured blog post-->
-			<div class="card mb-4">
-				<div class="card-header">
-					<div class="my-postInfo-top justify-content-between">
-						<div class="my-postInfo-top">
-							<img class="my-profile-img my-mr1" src="/image/no_profile_img.jpg" />
-							<div class="my-bold">nickname</div>
-						</div>
-						<div class="my-font-small">2024년 1월 25일</div>
-					</div>
-				</div>
-
-				<div class="my-postInfo-middle">
-					<div class="my-postInfo-img">
-						<img alt="" src="../image/google.png">
-					</div>
-					<div class="card-body">
-						<div class="my-postInfo-right">
-							<div>
-								<h2 class="card-title">구글</h2>
-								<p class="card-text">Google is good</p>
-							</div>
-
-							<div class="my-end my-font-small">
-								<p>댓글 0 좋아요 0</p>
-								<a class="btn btn-dark my-ml1" href="#!">Read More ></a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<!-- Featured blog post-->
-			<div class="card mb-4">
-				<div class="card-header">
-					<div class="my-postInfo-top justify-content-between">
-						<div class="my-postInfo-top">
-							<img class="my-profile-img my-mr1" src="/image/no_profile_img.jpg" />
-							<div class="my-bold">nickname</div>
-						</div>
-						<div class="my-font-small">2024년 1월 25일</div>
-					</div>
-				</div>
-
-				<div class="my-postInfo-middle">
-					<div class="my-postInfo-img">
-						<img alt="" src="../image/naver.png">
-					</div>
-					<div class="card-body">
-						<div class="my-postInfo-right">
-							<div>
-								<h2 class="card-title">네이버</h2>
-								<p class="card-text">Naver Line 치지직</p>
-							</div>
-
-							<div class="my-end my-font-small">
-								<p>댓글 0 좋아요 0</p>
-								<a class="btn btn-dark my-ml1" href="#!">Read More ></a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
+			</c:forEach>
+			
 			<!-- Pagination-->
-			<nav aria-label="Pagination">
-				<hr class="my-0" />
-				<ul class="pagination justify-content-center my-4">
-					<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">이전</a></li>
-					<li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-					<li class="page-item"><a class="page-link" href="#!">2</a></li>
-					<li class="page-item"><a class="page-link" href="#!">3</a></li>
-					<li class="page-item"><a class="page-link" href="#!">4</a></li>
-					<li class="page-item"><a class="page-link" href="#!">5</a></li>
-					<li class="page-item"><a class="page-link" href="#!">다음</a></li>
-				</ul>
-			</nav>
+			<div class="pagination justify-content-center my-4">
+		    	<c:choose>
+					<c:when test="${currentPage lt 5}">
+					<a class="page-link my-pre-page disabled" tabindex="-1" aria-disabled="true">이전</a>
+					</c:when>
+					<c:otherwise>
+					<a class="page-link my-pre-page" href="/?page=${startPage - pageBlock}" tabindex="-1" aria-disabled="true">이전</a>
+					</c:otherwise>
+				</c:choose>	
+		    	<c:forEach var="i" begin="${startPage}" end="${endPage}" step="1">
+		        <c:choose>
+		            <c:when test="${i eq boards.number}">
+		                <a class="page-link active" href="/?page=${i}">${i}</a>
+		            </c:when>
+		            <c:otherwise>
+		                <a class="page-link" href="/?page=${i}">${i}</a>
+		            </c:otherwise>
+		        </c:choose>
+		        </c:forEach>
+				<c:choose>
+				<c:when test="${currentPage ge (boards.totalPages - (boards.totalPages % pageBlock))}">
+					<a class="page-link my-next-page disabled">다음</a>
+				</c:when>
+				<c:otherwise>				
+					<a class="page-link my-next-page" href="/?page=${startPage + pageBlock}">다음</a>
+				</c:otherwise>
+				</c:choose>
+			</div>
+		
 		</div>
+		
 		<!-- Side widgets-->
 		<div class="col-lg-4">
 			<!-- Categories widget-->
 			<div class="card mb-4">
-				<div class="card-header">카테고리</div>
-				<!-- 				<div class="card-body"> -->
+				<div class="card-header my-card-header">카테고리</div>
 				<div class="card-body my-catrgory-box">
 					<div class="my-category">
 						<a href="#!" class="btn btn-success" onclick="alert('준비중!')">내블로그</a>
-						<a href="#!" class="btn btn-success" onclick="alert('준비중!')">글쓰기</a>
+						<a href="/blogWrite" class="btn btn-success">글쓰기</a>
 						<a href="#!" class="btn btn-primary" onclick="alert('준비중!')">ToDo</a>
 					</div>
 					<div class="my-category">
@@ -143,16 +100,15 @@
 						<a href="#!" class="btn btn-danger" onclick="alert('준비중!')">あかさ</a>
 					</div>
 				</div>
-				<!-- 				</div> -->
 			</div>
 			<!-- Recomend widget-->
 			<div class="card mb-4">
-				<div class="card-header">추천</div>
+				<div class="card-header my-card-header">추천</div>
 				<div class="card-body">...</div>
 			</div>
 			<!-- Side widget-->
 			<div class="card mb-4">
-				<div class="card-header">위젯</div>
+				<div class="card-header my-card-header">위젯</div>
 				<div class="card-body">기타 API</div>
 			</div>
 		</div>
