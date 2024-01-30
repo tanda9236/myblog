@@ -21,9 +21,9 @@
 </div>
 
 <div class="my-side-btn">
-	<button class="rollUp" onclick="window.scrollTo(0,0);">
+	<a id="scr_btn" href="#">
 		<img src="../image/top.png" alt="top">
-	</button>
+	</a>
 </div>
 <script>
 $(document).ready(function() {

@@ -10,13 +10,16 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
 public class User {
 
 	@Id
@@ -31,6 +34,8 @@ public class User {
 	
 	@Column(nullable = false, length = 50)
 	private String email;
+	
+	private String nickname; //
 	
 	private String role;
 	

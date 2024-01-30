@@ -10,6 +10,13 @@ body {
 	background-color: black;
 }
 
+p {
+	margin: 0;
+}
+hr{
+	margin: 5px 0;
+}
+
 .my_icon {
 	height: 46px;
 	border: none;
@@ -41,7 +48,7 @@ body {
 .my-navbar {
 	width: 100%;
 	height: 70px;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 0.6);
 	backdrop-filter: blur(10px);
 	display: flex;
 	align-items: center;
@@ -71,12 +78,12 @@ body {
 
 @media ( max-width : 768px) {
 	.your-email, .my-login-link {
-		display: none;
+/* 		display: none; */
 	}
 }
 
 .my-logo {
-	width: 150px;
+	width: 140px;
 	/* 	margin-left: 30px; */
 }
 
@@ -85,6 +92,8 @@ body {
 	font-family: 'deathrattlebb';
 	text-decoration: none;
 	font-size: 36px;
+	width: 140px;
+    display: block;
 }
 
 .my-nav-btn-box {
@@ -132,6 +141,7 @@ body {
 	border-radius: 25px;
 	font-size: 16px;
 	font-weight: 700;
+	overflow: hidden;
 }
 
 #searchbar .my-input {
@@ -168,15 +178,27 @@ body {
 	margin-bottom: 25px;
 }
 
-.rollUp {
+#scr_btn {
+	background: white;
 	margin-top: 5px;
 	width: 42px;
 	height: 42px;
 	border-radius: 50%;
 	border: none;
+	opacity: 0;
+	transition: opacity .3s ease-in-out;
+	cursor: default;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.rollUp img {
+#scr_btn.visible {
+	opacity: 1;
+	cursor: pointer;
+}
+
+#scr_btn img {
 	width: 31px;
 	height: 31px;
 }
@@ -275,7 +297,65 @@ body {
 	flex-direction: column;
 	justify-content: space-between;
 }
+.my-profile-info {
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+/* 	justify-content: space-between; */
+	align-items: center;
+}
+.my-profile-category{
+	display: flex;
+	align-items: center;
+	padding-left: 10px;
+	border: #333333 1px solid;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	height: 40px;
+	color: white;
+	text-decoration: none;
+}
+.my-profile-category:hover{
+	color: white;
+	background: #333333;
+}
 
+.my-profile-category.active {
+	background: #333333;
+}
+/* .my-profile-category:active{ */
+/* 	color: white; */
+/* 	background: #333333; */
+/* } */
+
+.my-profile-input{
+	width: 100%;
+	height: 50px;
+	border-radius: 10px;
+	padding-left: 15px;
+}
+.my-profile-left{
+	width: 100px;
+	height: 100px;
+	margin: 10px 26px 10px 10px;
+}
+.my-profile-left > img {
+	background: yellow;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
+.my-profile-right{
+	width: calc(100% - 152px);
+}
+
+.my-img-category {
+	margin-right: 12px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
 .my-postInfo-main {
 	width: calc(100% - 200px);
 	height: 200px;
@@ -326,6 +406,13 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+}
+.my-category-box-info {
+	padding: 8px 3px 8px 3px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .my-category a {
@@ -389,6 +476,17 @@ body {
 	font-size: 100px;
 }
 
+.my-fs2 {
+	font-size: 20px;
+}
+.my-m-position{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.my-col{
+	flex-direction: column;
+}
 .my-login {
 	/* 	margin-top: 30px; */
 	margin-bottom: 130px;
@@ -439,12 +537,22 @@ body {
 .my-oauth-login a {
 	margin: 0 5px 0 5px;
 }
-
+.start-blog {
+	background: linear-gradient(to right, #181818, #232526, #414141);
+	text-decoration: none;
+	padding: 5px 20px 5px 20px;
+	border-radius: 10px;
+}
+.start-blog{
+	
+}
 /* =========================================== */
 .my-mr1 {
 	margin-right: 12px;
 }
-
+.my-mr2{
+	margin-right: 16px;
+}
 .my-ml1 {
 	margin-left: 12px;
 }
@@ -521,13 +629,6 @@ a.my-bg-danger:hover {
 	background: linear-gradient(to right, #D31027, #EA384D);
 }
 
-.my-scroll-no {
-/* 	-webkit-user-select: none; */
-/* 	-moz-user-select: none; */
-/* 	-ms-user-select: none; */
-/* 	user-select: none; */
-}
-/* , a, .card-header, .my-header-text, .my-end */
 img {
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -736,24 +837,38 @@ to {
     position: relative;
 }
 
+.dropdown-img{
+	margin-right: 16px;
+	width: 20px;
+	height: 20px
+}
+
+.dropdown-elm{
+	height: 40px;
+	padding: 0 16px;
+}
+.dropdown-elm-top{
+	height: 60px;
+	padding: 0 16px;
+}
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 54px;
-    right: -16px;
+    top: 100%;
+    right: 0;
     background-color: #1a1a1a;
-    width: 120px;
+    width: 240px;
     z-index: 1;
-    border-radius: 5px 0 0 5px;
+    border-radius: 10px;
+    padding: 8px 0;
 }
 
 .dropdown-content a {
     display: block;
-    margin: 16px 24px 16px 0;
-    text-align: right;
     text-decoration: none;
-    color: white;
+    color: whitesmoke;
     font-weight: bold;
+    font-size: 16px;
 }
 
 .dropdown-content a:hover {
@@ -789,5 +904,7 @@ to {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+}
+.my-center{
 	justify-content: center;
 }

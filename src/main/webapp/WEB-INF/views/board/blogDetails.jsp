@@ -24,7 +24,7 @@
 	<a class="my-writer" href="/${board.user.id}">${board.user.username}</a> · ${formattedDate} · <span id=id>${board.id}</span></div>
 
 	<div class="my-details-content">${board.content}</div>
-	
+<!-- 	&#x3000; -->
 </div>
 <div class="my-box-end"></div>
 
@@ -35,11 +35,6 @@
 	</div>
 </div>
 </div>
-</div>
-<div class="my-side-btn">
-	<button class="rollUp" onclick="window.scrollTo(0,0);">
-		<img src="/image/top.png" alt="top">
-	</button>
 </div>
 <script src="/js/board.js"></script>
 <%@ include file="../layout/footer.jsp"%>

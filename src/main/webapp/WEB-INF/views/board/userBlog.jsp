@@ -15,7 +15,8 @@
 	<div class="row">
 		<!-- Blog entries-->
 		<div class="col-lg-8">
-		
+		<c:choose>
+    	<c:when test="${not empty boards.content}">
 			<!-- Featured blog post-->
 			<c:forEach var="board" items="${boards.content}">
 			<div class="card mb-4">
@@ -23,7 +24,7 @@
 					<div class="my-postInfo-top justify-content-between">
 						<div class="my-postInfo-top">
 							<img class="my-profile-img my-mr1" src="/image/no_profile_img.jpg" />
-							<div class="my-bold"><a class="my-writer" href="/${board.user.id}">${board.user.username}</a></div>
+							<div class="my-bold"><a class="my-writer" href="/${board.user.id}">${board.user.nickname}</a></div>
 						</div>
 						<div class="my-font-small">
 							<c:set var="rawCreateDate" value="${board.createDate}" />
@@ -85,7 +86,22 @@
 				</c:otherwise>
 				</c:choose>
 			</div>
-		
+		</c:when>
+    		<c:otherwise>
+<!-- ㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅ -->
+			<div class="card mb-4">
+				<div class="my-postInfo-middle my-m-position my-col">
+				<h5>작성하신 게시글이 없습니다.</h5><br>
+<!-- 				<a class="start-blog" href="#!">&#x226B;&nbsp;블로그 시작하기&nbsp;&#x226A;</a> -->
+					<div class="button-container-2">
+						<span class="mas">블로그</span>
+						<button>블로그</button>
+					</div>
+				</div>
+			</div>      		  
+<!-- ㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅ -->
+   		 	</c:otherwise>
+		</c:choose>
 		</div>
 		
 		<!-- Side widgets-->
@@ -119,10 +135,9 @@
 		</div>
 	</div>
 </div>
-
 <div class="my-side-btn">
-	<button class="rollUp" onclick="window.scrollTo(0,0);">
+	<a id="scr_btn" href="#">
 		<img src="../image/top.png" alt="top">
-	</button>
+	</a>
 </div>
 <%@ include file="../layout/footer.jsp"%>

@@ -22,14 +22,14 @@
 
 				<div>
 					<div class="button-container-2">
-						<span class="mas">로그인</span>
+						<span class="mas" style="padding-top: 2px;">로그인</span>
 						<button>로그인</button>
 					</div>
 				</div>
 				<div class="my-sb my-scroll-no my-mt0">
 					<a class="my-fc-71 my-cur-p" href="/joinForm">회원가입</a>
 					<p class="my-fc-71 my-mlr-1">|</p>
-					<a class="my-fc-71 my-cur-p" onclick="alert('준비중!')">비밀번호 변경</a>
+					<a class="my-fc-71 my-cur-p" onclick="alert('준비중!')">계정찾기</a>
 				</div>
 			</div>
 
@@ -57,14 +57,14 @@
 </c:if>
 
 <script type="text/javascript">
-	function confirm() {
-		var u = document.getElementById('username').value;
-		var p = document.getElementById('password').value;
+function confirm() {
+	var u = document.getElementById('username').value;
+	var p = document.getElementById('password').value;
 
-		if (!u || !p) {
-			alert('Username과 Password를 입력해주세요');
-			return false;
-		}
+	if (!u || !p) {
+		alert('Username과 Password를 입력해주세요');
+		return false;
 	}
+}
 </script>
 <%@ include file="../layout/footer.jsp"%>

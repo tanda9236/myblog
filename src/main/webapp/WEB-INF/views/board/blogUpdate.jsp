@@ -21,12 +21,6 @@
 		</div>
 	</div>
 </div>
-
-<div class="my-side-btn">
-	<button class="rollUp" onclick="window.scrollTo(0,0);">
-		<img src="../image/top.png" alt="top">
-	</button>
-</div>
 <script>
 $(document).ready(function() {
 	$('#summernote').summernote({

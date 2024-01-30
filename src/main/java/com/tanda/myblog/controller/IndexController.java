@@ -20,7 +20,7 @@ public class IndexController {
 	private BoardService boardService;
 	
 	@GetMapping({"","/"})
-	public String index(HttpServletRequest request, Model model, @PageableDefault(size=2, sort="id", direction = Sort.Direction.DESC) Pageable pageable) {
+	public String index(HttpServletRequest request, Model model, @PageableDefault(size=5, sort="id", direction = Sort.Direction.DESC) Pageable pageable) {
 		
 		model.addAttribute("boards",boardService.글목록(pageable));
 		int pageBlock = 5;

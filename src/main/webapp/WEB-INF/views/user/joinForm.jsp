@@ -56,7 +56,7 @@
 			alert('Username을 입력해주세요(6~20자)');
 			return false;
 		}
-		if (p1.length < 8) {
+		if (p1.length < 8 || p1.length > 64) {
 			alert('Password를 입력해주세요 (8~64)자');
 			return false;
 		}
