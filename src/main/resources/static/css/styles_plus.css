@@ -173,7 +173,7 @@ hr{
 	color: white;
 	flex-direction: column;
 	justify-content: center;
-	background-image: url('../image/dark_img1.jpg');
+/* 	background-image: url('../image/dark_img1.jpg'); */
 	background-size: cover;
 	margin-bottom: 25px;
 }
@@ -296,6 +296,13 @@ hr{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+}
+.my-postInfo-bet {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 15px 40px 15px;
 }
 .my-profile-info {
 	height: 100%;
@@ -479,6 +486,9 @@ hr{
 .my-fs2 {
 	font-size: 20px;
 }
+.my-fs3 {
+	font-size: 18px;
+}
 .my-m-position{
 	display: flex;
 	justify-content: center;
@@ -543,10 +553,14 @@ hr{
 	padding: 5px 20px 5px 20px;
 	border-radius: 10px;
 }
-.start-blog{
-	
-}
 /* =========================================== */
+.my-box-underline{
+	border-bottom: #212529 1.5px solid;
+}
+
+.my-w2{
+	width: 520px;
+}
 .my-mr1 {
 	margin-right: 12px;
 }
@@ -555,6 +569,9 @@ hr{
 }
 .my-ml1 {
 	margin-left: 12px;
+}
+.my-ml2 {
+	margin-left: 16px;
 }
 
 .my-mt0 {
@@ -585,6 +602,13 @@ hr{
 	flex-direction: row;
 	justify-content: center;
 }
+.my-sb-or {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+	
+}
 
 .my-fc-71 {
 	color: #717171;
@@ -595,7 +619,10 @@ hr{
 	color: white;
 	text-decoration: none;
 }
-
+a.my-fc-w{
+	color: white;
+	text-decoration: none;
+}
 p.my-fc-w {
 	font-size: 20px;
 	font-weight: bold;
@@ -614,6 +641,14 @@ a.my-fc-71:hover {
 }
 .my-float-right {
 	text-align: right;
+}
+
+.my-bg-img1 {
+	background-image: url('../image/dark_img1.jpg');
+}
+
+.my-bg-img2 {
+	background-image: url('../image/test_img1.jpg');
 }
 
 .my-bg-warning {
@@ -826,12 +861,57 @@ to {
 	color: white;
 	text-decoration: none;
 	font-weight: bold;
+	font-size: 18px;
 }
 .my-writer:hover{
 	color: white;
 	text-decoration: underline;
 }
 
+.my-reply-write {
+	resize: none;
+    padding: 1rem 1rem 1.5rem;
+    outline: none;
+    border: 1px solid #2A2A2A;;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    width: 100%;
+    border-radius: 4px;
+    min-height: 6.125rem;
+    font-size: 1rem;
+    color: #ECECEC;;
+    line-height: 1.75;
+    background: #1E1E1E;;
+}
+.my-reply-box{
+	padding: 25px;
+}
+.my-reply-top{
+	margin: 10px;
+}
+.my-btn-small{
+	color: whitesmoke;
+	background: linear-gradient(to right, #8E0E00, #b31217);
+	border: none;
+	font-weight: bold;
+}
+.my-btn-small:hover{
+	color: whitesmoke;
+	background: linear-gradient(to right, #610B0B, #8A0808);
+}
+.my-row-reverse{
+	display: flex;
+    flex-direction: row-reverse;
+}
+.my-badge {
+	border-radius: 4px;
+	color: whitesmoke;
+	background: #212529;
+	border: none;
+}
+.my-badge:hover {
+	background: #373b3e;
+}
 /* =============================================================== 드롭다운 ==== */
 .dropdown {
     position: relative;
@@ -869,10 +949,6 @@ to {
     color: whitesmoke;
     font-weight: bold;
     font-size: 16px;
-}
-
-.dropdown-content a:hover {
-	
 }
 
 .dropdown-toggle.clicked .dropdown-content {

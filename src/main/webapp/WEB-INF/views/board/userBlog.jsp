@@ -4,10 +4,9 @@
 
 <!-- Page header with logo and tagline-->
 <header>
-	<div class="my-header-text">
+	<div class="my-header-text my-bg-img2">
 		<h1>Individual User's Blog</h1>
 		<p class="lead mb-0">stories and ideas</p>
-		<p>${principal.getUsername()}</p>
 	</div>
 </header>
 <!-- Page content-->
@@ -47,7 +46,7 @@
 							</div>
 
 							<div class="my-end my-font-small">
-								<p>댓글 0 좋아요 0</p>
+								<p>댓글 ${board.replyCount} 좋아요 0</p>
 								<a class="btn btn-dark my-ml1" href="/${board.user.id}/board/${board.id}">More ></a>
 							</div>
 						</div>
@@ -57,7 +56,7 @@
 			</div>
 			</c:forEach>
 			
-			<!-- Pagination-->
+			<!-- 페이징 start -->
 			<div class="pagination justify-content-center my-4">
 		    	<c:choose>
 					<c:when test="${currentPage lt 5}">
@@ -86,13 +85,13 @@
 				</c:otherwise>
 				</c:choose>
 			</div>
+			<!-- 페이징 end -->
 		</c:when>
     		<c:otherwise>
 <!-- ㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅ -->
 			<div class="card mb-4">
 				<div class="my-postInfo-middle my-m-position my-col">
 				<h5>작성하신 게시글이 없습니다.</h5><br>
-<!-- 				<a class="start-blog" href="#!">&#x226B;&nbsp;블로그 시작하기&nbsp;&#x226A;</a> -->
 					<div class="button-container-2">
 						<span class="mas">블로그</span>
 						<button>블로그</button>

@@ -35,7 +35,7 @@ public class User {
 	@Column(nullable = false, length = 50)
 	private String email;
 	
-	private String nickname; //
+	private String nickname;
 	
 	private String role;
 	
@@ -49,11 +49,12 @@ public class User {
 	private Timestamp updateDate;
 	
 	@Builder
-	public User(String username, String password, String email, String role, String provider, String providerId,
+	public User(String username, String password, String email, String nickname, String role, String provider, String providerId,
 			Timestamp createDate, Timestamp updateDate) {
 		this.username = username;
 		this.password = password;
 		this.email = email;
+		this.nickname = nickname;
 		this.role = role;
 		this.provider = provider;
 		this.providerId = providerId;

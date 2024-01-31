@@ -42,19 +42,7 @@
 			</div>
 		</form>
 	</div>
-	<div class="my-err-msg">
-		<c:if test="${not empty error}">
-			<p>${exception}</p>
-		</c:if>
-	</div>
 </div>
-
-
-<c:if test="${not empty error}">
-	<script>
-		// 		alert("${exception}");
-	</script>
-</c:if>
 
 <script type="text/javascript">
 function confirm() {

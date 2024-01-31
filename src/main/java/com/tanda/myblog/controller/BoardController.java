@@ -24,7 +24,7 @@ public class BoardController {
 	@GetMapping("/board/blogWrite")
 	public String blogWrite() {
 		return "/board/blogWrite";
-	}
+	}// 글작성 페이지
 	
 	@GetMapping("/{id}")
 	public String blogWrite(@PathVariable int id, HttpServletRequest request, Model model,
@@ -45,20 +45,20 @@ public class BoardController {
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
 		return "/board/userBlog";
-	}
+	}// 유저별 블로그 페이지
 	
 	@GetMapping("/{userId}/board/{id}")
 	public String findByUserIdAndId(@PathVariable int userId, @PathVariable int id, Model model) {
 		
 	    model.addAttribute("board", boardService.글상세보기(userId, id));
 	    return "/board/blogDetails";
-	}
+	}// 게시글 상세보기 페이지
 	
 	@GetMapping("/board/{id}/blogUpdate")
 	public String blogUpdate(@PathVariable int id, Model model) {
 		
 	    model.addAttribute("board", boardService.글상세보기(id));
 	    return "/board/blogUpdate";
-	}
+	}// 게시글 수정 페이지
 	
 }

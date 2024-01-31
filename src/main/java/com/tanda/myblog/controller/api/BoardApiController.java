@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tanda.myblog.config.auth.PrincipalDetails;
+import com.tanda.myblog.dto.ReplySaveRequestDto;
 import com.tanda.myblog.dto.ResponseDto;
 import com.tanda.myblog.model.Board;
 import com.tanda.myblog.service.BoardService;
@@ -25,31 +26,30 @@ public class BoardApiController {
 	public ResponseDto<Integer> save(@RequestBody Board board, @AuthenticationPrincipal PrincipalDetails principal) {
 		boardService.글쓰기(board, principal.getUser());
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
-	}
+	}// 게시글 작성
 	
 	@DeleteMapping("/api/board/{id}")
 	public ResponseDto<Integer> deleteById(@PathVariable int id){
 		boardService.글삭제(id);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
-	}
+	}// 게시글 삭제
 	
 	@PutMapping("/api/board/{id}")
 	public ResponseDto<Integer> update(@PathVariable int id, @RequestBody Board board){
 		boardService.글수정(id, board);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
-	}
+	}// 게시글 수정
 	
-//	@PostMapping("/api/board/{boardId}/reply")
-////	public ResponseDto<Integer> replySave(@PathVariable int boardId, @RequestBody Reply reply, @AuthenticationPrincipal PrincipalDetail principal) {
-//	public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestDto replySaveRequestDto) {	
-//		boardService.댓글쓰기(replySaveRequestDto);
-//		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
-//	}
-//	
-//	@DeleteMapping("/api/board/{boardId}/reply/{replyId}")
-//	public ResponseDto<Integer> replyDelete(@PathVariable int replyId) {
-//		boardService.댓글삭제(replyId);
-//		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
-//	}
+	@PostMapping("/api/board/{boardId}/reply")
+	public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestDto replySaveRequestDto) {	
+		boardService.댓글쓰기(replySaveRequestDto);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+	}// 댓글 작성
+	
+	@DeleteMapping("/api/board/{boardId}/reply/{replyId}")
+	public ResponseDto<Integer> replyDelete(@PathVariable int replyId) {
+		boardService.댓글삭제(replyId);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+	}// 댓글 삭제
 	
 }

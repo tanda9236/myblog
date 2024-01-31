@@ -17,11 +17,8 @@
 		</div>
 		</div> <!-- side end -->
 	</div>
-	
-	
 		<!-- Blog entries-->
 		<div class="col-lg-8">
-		
 			<!-- Featured blog post-->
 			<form>
 				<div class="card mb-4">
@@ -75,8 +72,6 @@
 					<span class="mas">저장</span>
 					<button id="btn-pass-update">저장</button>
 				</div>
-				
-				
 		</div>
 	
 	</div>

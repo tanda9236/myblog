@@ -7,8 +7,8 @@
 <div class="container my-join">
 
 	<div class="container my-login-form">
-		<form action="/join" method="POST" onsubmit="return confirm()">
-			<div>
+		<div>
+			<form>
 				<div>
 					<p class="my-fc-w my-scroll-no my-mb2">회원가입</p>
 				</div>
@@ -17,57 +17,29 @@
 				</div>
 
 				<div id="searchbar" style="margin-bottom: 16px;">
-					<input type="password" name="password" id="password1" class="my-input" placeholder="Enter Password (8~64)" maxlength="64"/>
+					<input type="password" name="password" id="password" class="my-input" placeholder="Enter Password (8~64)" maxlength="64"/>
 				</div>
 
 				<div id="searchbar" style="margin-bottom: 16px; background: #aaaaaa;">
-					<input type="password" name="password-check" id="password2" class="my-input" placeholder="Check Password" maxlength="64" style="background: #aaaaaa;"/>
+					<input type="password" name="passwordCheck" id="passwordCheck" class="my-input" placeholder="Check Password" maxlength="64" style="background: #aaaaaa;"/>
 				</div>
 
 				<div id="searchbar" style="margin-bottom: 16px;">
 					<input type="email" name="email" id="email" class="my-input" placeholder="Enter Email" maxlength="50"/>
 				</div>
-
+			</form>
 				<div>
 					<div class="button-container-2">
 						<span class="mas">회원가입</span>
-						<button>회원가입</button>
+						<button id="btn-save">회원가입</button>
 					</div>
 				</div>
 
 				<div class="my-sb my-scroll-no">
 					<p class="my-fc-71 my-mt0">Welcome to MyBlog!</p>
 				</div>
-			</div>
-
-		</form>
+		</div>
 	</div>
-
 </div>
-<script type="text/javascript">
-	function confirm() {
-		var u = document.getElementById('username').value;
-		var p1 = document.getElementById('password1').value;
-		var p2 = document.getElementById('password2').value;
-		var e = document.getElementById('email').value;
-		var eForm = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		
-		if (u == null || u.length < 6 || u.length > 20) {
-			alert('Username을 입력해주세요(6~20자)');
-			return false;
-		}
-		if (p1.length < 8 || p1.length > 64) {
-			alert('Password를 입력해주세요 (8~64)자');
-			return false;
-		}
-		if (p1 != p2) {
-			alert("Password가 일치하지 않습니다");
-			return false;
-		}
-		if (!e || !eForm.test(e)) {
-			alert('올바른 Email을 입력해주세요');
-			return false;
-		}
-	}
-</script>
+<script src="/js/user.js"></script>
 <%@ include file="../layout/footer.jsp"%>

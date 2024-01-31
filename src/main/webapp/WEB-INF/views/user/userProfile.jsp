@@ -19,11 +19,8 @@
 		</div>
 		</div> <!-- side end -->
 	</div>
-	
-	
 		<!-- Blog entries-->
 		<div class="col-lg-8">
-		
 			<!-- Featured blog post-->
 			<form>
 				<div class="card mb-4">
@@ -56,8 +53,6 @@
 											<p class="my-mb1">닉네임</p>
 											<p><input id="nickname" class="my-profile-input" type="text" value="${user.nickname}" maxlength="18"></p>
 											<input type="hidden" id="id" value="${principal.user.id}" />
-<%-- 											<input type="hidden" id="username" value="${principal.user.username}" /> --%>
-<%-- 											<input type="hidden" id="password" value="${principal.user.password}" /> --%>
 										</div>
 									</div>
 										
@@ -79,21 +74,9 @@
 					<span class="mas">저장</span>
 					<button id="btn-nick-update">저장</button>
 				</div>
-				
-				
 		</div>
 	
 	</div>
 </div>
-<script type="text/javascript">
-	function confirm() {
-		var n = document.getElementById('nickname').value;
-		
-		if (n == null || u.length < 2 || u.length > 18) {
-			alert('Nickname을 입력해주세요(2~18자)');
-			return false;
-		}
-	}
-</script>
 <script src="/js/user.js"></script>
 <%@ include file="../layout/footer.jsp"%>

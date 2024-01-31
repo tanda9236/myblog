@@ -9,7 +9,6 @@
 		<div>
 			<input value="${board.title}" type="text" class="my-write-title" placeholder="제목을 입력하세요" id="title">
 		</div>
-		
 		<div class="form-group my-write-content">
 			<textarea id="summernote" name="editordata">${board.content}</textarea>
 		</div>

@@ -12,10 +12,10 @@ import com.tanda.myblog.model.Board;
 
 public interface BoardRepository extends JpaRepository<Board, Integer>{
 	
-	// 유저별 블로그
+	// 유저별 블로그 페이지
 	Page<Board> findByUserId(Integer id, Pageable pageable);
 	
-	// 상세보기
+	// 상세보기 페이지
 	Optional<Board> findByUserIdAndId(Integer userId, Integer id);
 	
 }

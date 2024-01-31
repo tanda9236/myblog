@@ -7,7 +7,6 @@
 		<div>
 			<input type="text" class="my-write-title" placeholder="제목을 입력하세요" id="title">
 		</div>
-		
 		<div class="form-group my-write-content">
 			<textarea id="summernote" name="editordata"></textarea>
 		</div>
@@ -19,7 +18,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="my-side-btn">
 	<a id="scr_btn" href="#">
 		<img src="../image/top.png" alt="top">

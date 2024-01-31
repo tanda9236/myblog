@@ -58,6 +58,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService{
 		String password = bCryptPasswordEncoder.encode("비밀번호");
 		String email = oAuth2UserInfo.getEmail();
 		String role = "ROLE_USER";
+		String nickname = "닉네임#"+userRepository.count();
 		
 		User userEntity = userRepository.findByUsername(username);
 		
@@ -67,6 +68,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService{
 					.username(username)
 					.password(password)
 					.email(email)
+					.nickname(nickname)
 					.role(role)
 					.provider(provider)
 					.providerId(providerId)

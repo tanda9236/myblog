@@ -36,7 +36,8 @@ public class IndexController {
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
 		return "index";
-	}
+	}// 메인 페이지
+	
 	
 //	테스트 페이지
 	

@@ -79,12 +79,19 @@ let index = {
 			alert(JSON.stringify(error));
 		});
 	},
-/////////////////////////////////////////////////////////////////////////////////
+	
 	replySave: function() {
+		let content = $("#reply-content").val()
+		
+		if (content.length < 1) {
+	        alert('내용을 입력해주세요.');
+	        return false;
+	    }
+	    
 		let data = {
 			userId: $("#userId").val(),
 			boardId: $("#boardId").val(),
-			content: $("#reply-content").val()
+			content: content
 		};
 
 		$.ajax({
@@ -95,23 +102,25 @@ let index = {
 			dataType: "json"
 		}).done(function(resp) {
 			alert('댓글작성이 완료되었습니다.');
-			location.href = `/board/${data.boardId}`;
+			location.reload();
 		}).fail(function(error) {
 			alert(JSON.stringify(error));
 		});
 	},
 
 	replyDelete: function(boardId, replyId) {
-		$.ajax({
-			type: "DELETE",
-			url: `/api/board/${boardId}/reply/${replyId}`,
-			dataType: "json"
-		}).done(function(resp) {
-			alert('댓글삭제 성공.');
-			location.href = `/board/${boardId}`;
-		}).fail(function(error) {
-			alert(JSON.stringify(error));
-		});
+		if (confirm("정말로 삭제하시겠습니까?\n( 복구할 수 없습니다 )")) {
+			$.ajax({
+				type: "DELETE",
+				url: `/api/board/${boardId}/reply/${replyId}`,
+				dataType: "json"
+			}).done(function(resp) {
+				alert('댓글삭제 성공.');
+				location.reload();
+			}).fail(function(error) {
+				alert(JSON.stringify(error));
+			});
+		}
 	}
 }
 
