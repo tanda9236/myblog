@@ -60,38 +60,34 @@ let index = {
 		});
 	},
 	
-	updateNickname: function(){
-		let nickname = $("#nickname").val();
-		if(!nickname || nickname.length < 2 || nickname.length > 18){
-			alert('Nickname을 입력해주세요(2~18자)');
-			return;
-		}
-		
-		let data = {
-			id: $("#id").val(),
-			nickname: nickname,
-			
-			password: $("#password").val(),
-			username: $("#username").val()
-		};
-		
-		console.log(id);
-		console.log(nickname);
-		
-		$.ajax({
-			type: "PUT",
-			url: "/user/nickname",
-			data: JSON.stringify(data),
-			contentType: "application/json; charset=utf-8",
-			dataType: "json"
-		}).done(function(resp){
-			alert('닉네임 수정이 완료되었습니다.');
-			location.reload();
-		}).fail(function(error){
-			alert(JSON.stringify(error));
-		});
+		updateNickname: function() {
+	    let nickname = $("#nickname").val();
+	    if (!nickname || nickname.length < 2 || nickname.length > 18) {
+	        alert('Nickname을 입력해주세요(2~18자)');
+	        return;
+	    }
+	    
+	    let formData = new FormData();
+	    formData.append("id", $("#id").val());
+	    formData.append("nickname", nickname);
+	    formData.append("file", $("#file")[0].files[0]);
+
+	    $.ajax({
+	        type: "PUT",
+	        url: "/user/nickname",
+	        data: formData,
+	        processData: false,
+	        contentType: false,
+	        success: function(resp) {
+	            alert('닉네임 수정이 완료되었습니다.');
+	            location.reload();
+	        },
+	        error: function(xhr, status, error) {
+	            alert(JSON.stringify(error));
+	        }
+	    });
 	},
-	
+
 	updatePass: function(){
 		let pass = $("#password").val();
 		let passCheck = $("#passwordCheck").val();

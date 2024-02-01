@@ -1,5 +1,9 @@
 package com.tanda.myblog.service;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -25,8 +29,28 @@ public class BoardService {
 	public void 글쓰기(Board board, User user) {
 		board.setCount(0);
 		board.setUser(user);
+//		System.out.println("Content : "+board.getContent());
+		String content = board.getContent();
+		String thumbnail = extractThumbnail(content);
+//		System.out.println("thumbnail : "+thumbnail);
+		board.setThumbnail(thumbnail);
+		
 		boardRepository.save(board);
 	}// 게시글 작성
+	
+	private String extractThumbnail(String content) {
+        Document doc = Jsoup.parse(content);
+        Elements imgTags = doc.select("img");
+
+        if (!imgTags.isEmpty()) {
+            Element firstImgTag = imgTags.first();
+            String src = firstImgTag.attr("src");
+//            System.out.println("src : "+src);
+            return src.startsWith("/") ? src : "/image/no_profile_img.jpg";
+        } else {
+            return "/image/no_profile_img.jpg";
+        }
+    }// 썸네일 추출 메서드
 	
 	@Transactional(readOnly = true)
 	public Page<Board> 글목록(Pageable pageable){
@@ -62,6 +86,12 @@ public class BoardService {
 				});
 		board.setTitle(requestBoard.getTitle());
 		board.setContent(requestBoard.getContent());
+		
+//		System.out.println("Content : "+board.getContent());
+		String content = board.getContent();
+		String thumbnail = extractThumbnail(content);
+//		System.out.println("thumbnail : "+thumbnail);
+		board.setThumbnail(thumbnail);
 	}// 게시글 수정
 	
 	@Transactional

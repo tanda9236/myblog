@@ -23,47 +23,6 @@
 		<img src="../image/top.png" alt="top">
 	</a>
 </div>
-<script>
-$(document).ready(function() {
-	$('#summernote').summernote({
-		placeholder : '',
-		tabsize : 2,
-		height: 530,
-		minHeight : 530,
-		maxHeight : 530,
-// 		focus : true,
-		disableResizeEditor : true,
-		lang : 'ko-KR',
-		toolbar : [
-			['style', ['style'] ],
-			['fontsize', ['fontsize']],
-			['font',['bold','italic','underline','strikethrough','clear']],
-			['color',['color']],
-			['para',['paragraph']],
-			['height',['height']],
-			['table',['table']],
-			['insert',['picture','link','hr']],
-			['view',['codeview']]],
-		fontSizes : ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72',],
-		lineHeights : ['0.2','0.3','0.4','0.5','0.6','0.8','1.0','1.2','1.4','1.5','2.0','3.0'],
-		callbacks : {
-			onInit : function() {
-				$('.note-editable').css({'color' : 'white'});
-				}
-	}
-	});
-});
-</script>
-<script type="text/javascript">
-function confirm() {
-	var t = document.getElementById('title').value;
-	var c = document.getElementById('content').value;
-	
-if (!t) {
-	alert('Title을 입력해주세요');
-	return false;
-	}
-}
-</script>
+<script src="/js/my_summernote.js"></script>
 <script src="/js/board.js"></script>
 <%@ include file="../layout/footer.jsp"%>

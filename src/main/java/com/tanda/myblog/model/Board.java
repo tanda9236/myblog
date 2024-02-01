@@ -41,7 +41,6 @@ public class Board {
 	private String title;
 	
 	@Lob
-	@Column(columnDefinition = "LONGTEXT")
 	private String content;
 	
 	private int count;
@@ -64,4 +63,6 @@ public class Board {
     public int getReplyCount() {
         return replies != null ? replies.size() : 0;
     }
+    
+    private String thumbnail;
 }

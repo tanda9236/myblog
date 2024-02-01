@@ -22,7 +22,7 @@
 		<!-- Blog entries-->
 		<div class="col-lg-8">
 			<!-- Featured blog post-->
-			<form>
+			<form enctype="multipart/form-data">
 				<div class="card mb-4">
 					<div class="card-header my-card-header">
 						<div class="my-postInfo-top justify-content-between">
@@ -41,7 +41,8 @@
 							<div class="my-postInfo-right" >
 								<div class ="my-profile-info" >
 									<div class="my-profile-left">
-									<img src="/image/no_profile_img.jpg"/>
+									<img src="${user.profilePath}" onerror="this.src='/image/no_profile_img.jpg'"/>
+									<input type="file" id="file"  name="file" accept=".png, .jpg, .jpeg, .gif">
 									</div>
 									
 									<div class="my-profile-right">

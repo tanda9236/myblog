@@ -22,7 +22,7 @@
 					<div class="card-header my-card-header">
 						<div class="my-postInfo-top justify-content-between">
 							<div class="my-postInfo-top">
-								<img class="my-profile-img my-mr1" src="/image/no_profile_img.jpg" />
+								<img class="my-profile-img my-mr1" src="${board.user.profilePath}" onerror="this.src='/image/no_profile_img.jpg'"/>
 								<div class="my-bold">
 									<a class="my-writer" href="/${board.user.id}">${board.user.nickname}</a>
 								</div>
@@ -37,7 +37,7 @@
 					</div>
 					<div class="my-postInfo-middle">
 						<div class="my-postInfo-img">
-							<img alt="" src="../image/kakao.png">
+							<img alt="" src="${board.thumbnail}">
 						</div>
 						<div class="card-body my-postInfo-main">
 							<div class="my-postInfo-right">

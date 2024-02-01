@@ -37,6 +37,9 @@ public class User {
 	
 	private String nickname;
 	
+	private String profileName;
+	private String profilePath;
+	
 	private String role;
 	
 	private String provider;

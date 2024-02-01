@@ -67,11 +67,11 @@ document.addEventListener("DOMContentLoaded", function() {
 						</c:when>
 						<c:otherwise>
 							<div class="dropdown">
-							<img class="my-profile-img dropdown-toggle my-cur-p" src="/image/no_profile_img.jpg" />
+							<img class="my-profile-img dropdown-toggle my-cur-p" src="${principal.user.profilePath}" onerror="this.src='/image/no_profile_img.jpg'"/>
 							<div class="dropdown-content">
 							    
 							    <div class="my-row dropdown-elm-top" >
-							    <img class="my-profile-img my-mr2" src="/image/no_profile_img.jpg" />
+							    <img class="my-profile-img my-mr2" src="${principal.user.profilePath}" onerror="this.src='/image/no_profile_img.jpg'"/>
 								    <div style="width: 155px;">
 								    	<a href="/${principal.user.id}" style="word-wrap: break-word;" class="my-bold ss">${principal.user.nickname}</a>
 								    </div>
