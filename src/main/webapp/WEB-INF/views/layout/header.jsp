@@ -1,3 +1,7 @@
+<%@page import="com.google.gson.Gson"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.tanda.myblog.model.User"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -25,6 +29,7 @@
 <link href="/css/summernote_plus.css" rel="stylesheet" />
 <link rel="shortcut icon" href="#">
 </head>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <body>
 <script type="text/javascript"> // 드롭다운
 document.addEventListener("DOMContentLoaded", function() {
@@ -56,7 +61,10 @@ document.addEventListener("DOMContentLoaded", function() {
 				<div>
 					<img class="my-scroll-no" height="38px" src="/image/search.png" />
 				</div>
-				<input type="text" class="my-input2" placeholder="검색">
+				<section class="my-section-s">
+					<input type="text" class="" id="search" placeholder="검색(닉네임)" autocomplete="off" />
+					<div class="autocomplete"></div>
+				</section>
 			</div>
 			<div class="my-nav-btn-box my-scroll-no">
 				<div class="my-profile-btn">
@@ -67,11 +75,15 @@ document.addEventListener("DOMContentLoaded", function() {
 						</c:when>
 						<c:otherwise>
 							<div class="dropdown">
-							<img class="my-profile-img dropdown-toggle my-cur-p" src="${principal.user.profilePath}" onerror="this.src='/image/no_profile_img.jpg'"/>
+							<div class="my-profile-img-box-s">
+							<img class="dropdown-toggle my-cur-p" src="${principal.user.profilePath}" onerror="this.src='/image/no_profile_img.jpg'"/>
+							</div>
 							<div class="dropdown-content">
 							    
 							    <div class="my-row dropdown-elm-top" >
-							    <img class="my-profile-img my-mr2" src="${principal.user.profilePath}" onerror="this.src='/image/no_profile_img.jpg'"/>
+							    <div class="my-profile-img-box-s my-mr2">
+							    <img class="" src="${principal.user.profilePath}" onerror="this.src='/image/no_profile_img.jpg'"/>
+							    </div>
 								    <div style="width: 155px;">
 								    	<a href="/${principal.user.id}" style="word-wrap: break-word;" class="my-bold ss">${principal.user.nickname}</a>
 								    </div>
@@ -92,16 +104,11 @@ document.addEventListener("DOMContentLoaded", function() {
 							    	<a href="/profile/${principal.user.id}">프로필</a>
 							    </div>
 							    
-							    <div class="my-row dropdown-elm" >
-							    	<img class="dropdown-img" src="/image/password.png" style="padding-right: 1px;"/>
-							    	<a class="my-cur-p" style="color:red;" onclick="alert('준비중!')">준비중!</a>
-							    </div>
-							    
 							    <hr/>
 							    
 							    <div class="my-row dropdown-elm" >
 							    	<img class="dropdown-img" src="/image/question.png" />
-							    	<a class="my-cur-p" style="color:red;" onclick="alert('준비중!')">고객센터</a>
+							    	<a class="my-cur-p" href="mailto:boong2469@gmail.com">고객센터(email)</a>
 							    </div>
 							    
 							</div>
@@ -113,3 +120,21 @@ document.addEventListener("DOMContentLoaded", function() {
 			</div>
 		</div>
 	</nav>
+
+<%
+List<User> userListAll = (List<User>) request.getAttribute("users");
+List<String> userListNickname = new ArrayList<>();
+List<String> userListId = new ArrayList<>();
+for (User user : userListAll) {
+	String nickname = user.getNickname();
+	userListNickname.add(nickname);
+}
+for (User user : userListAll) {
+	Integer id = user.getId();
+	userListId.add(String.valueOf(id));
+}
+%>
+<script type="text/javascript">
+ const userListNickname = <%= new Gson().toJson(userListNickname) %>;
+ const userListId = <%= new Gson().toJson(userListId) %>;
+</script>

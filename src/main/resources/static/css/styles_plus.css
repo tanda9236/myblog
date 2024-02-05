@@ -16,7 +16,9 @@ p {
 hr{
 	margin: 5px 0;
 }
-
+.my-font1 {
+	font-family: 'deathrattlebb';
+}
 .my_icon {
 	height: 46px;
 	border: none;
@@ -112,7 +114,23 @@ hr{
 	justify-content: center;
 	color: white;
 }
-
+.my-profile-img-box-s{
+	border-radius: 50%;
+/* 	aspect-ratio: auto 32/32; */
+	width: 38px;
+	height: 38px;
+    overflow: hidden;
+    position: relative;
+}
+.my-profile-img-box-s > img{
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .my-profile-img {
 	aspect-ratio: auto 32/32;
 	width: 38px;
@@ -141,7 +159,8 @@ hr{
 	border-radius: 25px;
 	font-size: 16px;
 	font-weight: 700;
-	overflow: hidden;
+/* 	overflow: hidden; */
+/* 	overflow-x: hidden; */
 }
 
 #searchbar .my-input {
@@ -165,7 +184,6 @@ hr{
 }
 
 .my-header-text {
-	font-family: 'deathrattlebb';
 	display: flex;
 	align-items: center;
 	height: 265px;
@@ -281,6 +299,7 @@ hr{
 	overflow: hidden;
 }
 .my-postInfo-title {
+	height: 45px;
 	white-space: nowrap;
   	overflow: hidden;
  	text-overflow: ellipsis;
@@ -302,7 +321,7 @@ hr{
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding: 10px 15px 40px 15px;
+	padding: 20px 15px 50px 25px;
 }
 .my-profile-info {
 	height: 100%;
@@ -341,18 +360,40 @@ hr{
 	border-radius: 10px;
 	padding-left: 15px;
 }
+.my-profile-input-long{
+	width: 100%;
+	height: 50px;
+	border-radius: 10px;
+	padding-left: 15px;
+}
 .my-profile-left{
 	width: 100px;
 	height: 100px;
 	margin: 10px 26px 10px 10px;
 }
 .my-profile-left > img {
-	background: yellow;
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
+/* 	width: 100%; */
+/* 	height: 100%; */
+/* 	border-radius: 50%; */
+/* 	overflow: hidden; */
 }
-
+.my-profile-img-box{
+	border-radius: 50%;
+	width: 100px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+.my-profile-img-box > img{
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
 .my-profile-right{
 	width: calc(100% - 152px);
 }
@@ -574,6 +615,10 @@ hr{
 	margin-left: 16px;
 }
 
+.my-ml3 {
+	margin-left: 26px;
+}
+
 .my-mt0 {
 	margin-top: 8px;
 }
@@ -584,6 +629,9 @@ hr{
 
 .my-mt2 {
 	margin-top: 80px;
+}
+.my-mt3 {
+	margin-top: 20px;
 }
 
 .my-mb1 {
@@ -648,7 +696,7 @@ a.my-fc-71:hover {
 }
 
 .my-bg-img2 {
-	background-image: url('../image/test_img1.jpg');
+	background-image: url('../image/dark_img2.jpg');
 }
 
 .my-bg-warning {
@@ -710,7 +758,22 @@ img {
 	background-color: #1b2021;
 	border: none;
 }
-
+/**/
+#fileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#file {
+	display: none;
+}
+.filebtn{
+	margin-top: 10px;
+	border: 1px white solid;
+}
+.filebtn > label {
+	margin: 0 3px 0 3px;
+}
 /* ===================================================== 테스트*/
 .button-container-2 {
 	position: relative;
@@ -887,7 +950,7 @@ to {
 	padding: 25px;
 }
 .my-reply-top{
-	margin: 10px;
+	margin: 10px 10px 10px 0px;
 }
 .my-btn-small{
 	color: whitesmoke;
@@ -983,4 +1046,51 @@ to {
 }
 .my-center{
 	justify-content: center;
+}
+/*//////////////////////////////////////////////////////////////////////*/
+section {
+/*   width: 300px; */
+/*   padding: 1.5rem 1.6rem; */
+/*   box-shadow: 0 0 1rem rgba(0, 0, 0, .05);   */
+/*   border-radius: 5px; */
+/*   display: flex; */
+/*   flex-direction: column; */
+/*   justify-content: center; */
+/*   background: #fff; */
+/*   margin-top: 2rem; */
+}
+.my-section-s{
+	width: 100%;
+	height: 100%;
+}
+.my-section-s > input{
+	width: 87%;
+	height: 100%;
+	background: inherit;
+	border: none;
+}
+.my-section-s > input:focus {
+	outline: none;
+}
+.autocomplete > div {
+	background: whitesmoke;
+    height: 40px;
+    display: flex;
+    margin: 0 0px 0px -20px;
+    padding: 0px 0px 0px 15px;
+    border-radius: 3px;
+    width: 100%;
+    align-items: center;
+    cursor: pointer;
+}
+.autocomplete > div.active {
+	background: silver;
+}
+.autocomplete > div:hover {
+	text-decoration: underline;
+}
+mark {
+	background: gray;
+	border-radius: 5px;
+	padding: 0.1em;;
 }

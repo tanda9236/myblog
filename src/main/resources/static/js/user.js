@@ -70,6 +70,7 @@ let index = {
 	    let formData = new FormData();
 	    formData.append("id", $("#id").val());
 	    formData.append("nickname", nickname);
+	    formData.append("intro", $("#intro").val());
 	    formData.append("file", $("#file")[0].files[0]);
 
 	    $.ajax({
@@ -79,7 +80,7 @@ let index = {
 	        processData: false,
 	        contentType: false,
 	        success: function(resp) {
-	            alert('닉네임 수정이 완료되었습니다.');
+	            alert('수정이 완료되었습니다.');
 	            location.reload();
 	        },
 	        error: function(xhr, status, error) {

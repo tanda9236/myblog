@@ -12,7 +12,6 @@
 			<div class="card-body my-category-box-info">
 				<a class="my-profile-category my-bold" href="/profile/${principal.user.id}" class=""><img class="dropdown-img" src="/image/profile.png" />프로필</a>
 				<a class="my-profile-category my-bold active" href="/password/${principal.user.id}" class=""><img class="dropdown-img" src="/image/password.png" style="padding-right: 1px;"/>비밀번호 변경</a>
-				<a class="my-profile-category my-bold" href="#!" class=""><img class="my-img-category" src="/image/no_profile_img.jpg" />메뉴3</a>
 			</div>
 		</div>
 		</div> <!-- side end -->

@@ -29,26 +29,21 @@ public class BoardService {
 	public void 글쓰기(Board board, User user) {
 		board.setCount(0);
 		board.setUser(user);
-//		System.out.println("Content : "+board.getContent());
 		String content = board.getContent();
 		String thumbnail = extractThumbnail(content);
-//		System.out.println("thumbnail : "+thumbnail);
 		board.setThumbnail(thumbnail);
-		
 		boardRepository.save(board);
 	}// 게시글 작성
 	
 	private String extractThumbnail(String content) {
         Document doc = Jsoup.parse(content);
         Elements imgTags = doc.select("img");
-
         if (!imgTags.isEmpty()) {
             Element firstImgTag = imgTags.first();
             String src = firstImgTag.attr("src");
-//            System.out.println("src : "+src);
-            return src.startsWith("/") ? src : "/image/no_profile_img.jpg";
+            return src.startsWith("/") ? src : null;
         } else {
-            return "/image/no_profile_img.jpg";
+            return null;
         }
     }// 썸네일 추출 메서드
 	
@@ -86,11 +81,8 @@ public class BoardService {
 				});
 		board.setTitle(requestBoard.getTitle());
 		board.setContent(requestBoard.getContent());
-		
-//		System.out.println("Content : "+board.getContent());
 		String content = board.getContent();
 		String thumbnail = extractThumbnail(content);
-//		System.out.println("thumbnail : "+thumbnail);
 		board.setThumbnail(thumbnail);
 	}// 게시글 수정
 	
@@ -111,5 +103,12 @@ public class BoardService {
 		replyRepository.deleteById(replyId);
 	}// 댓글 삭제
 	
+	@Transactional
+    public void 조회수(int id) {
+        Board board = boardRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("글 찾기 실패 : 아이디를 찾을 수 없습니다."));
+        board.setCount(board.getCount() + 1);
+        boardRepository.save(board);
+    }// 조회수 증가
 
 }

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BASE - multiple slide loop</title>
+<title>무한 슬라이드 테스트</title>
 <style type="text/css">
 .slides {
 	margin: 0;

@@ -60,9 +60,14 @@ let index = {
 
 	update: function() {
 		let id = $("#id").val();
-
+		let title = $("#title").val();
+		if (!title) {
+        alert('Title을 입력해주세요');
+        return;
+    	}
+		
 		let data = {
-			title: $("#title").val(),
+			title: title,
 			content: $("#summernote").val()
 		};
 

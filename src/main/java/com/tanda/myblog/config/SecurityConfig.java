@@ -25,6 +25,13 @@ public class SecurityConfig {
 	private final LoginFailureHandler loginFailureHandler = new LoginFailureHandler();
 	
 	@Bean
+    AuthenticationManager authenticationManager(
+            AuthenticationConfiguration authenticationConfiguration
+    ) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    } // 세션관련 AuthenticationManager를 사용하기위해 만듬, 오버라이드가 안됨.. 
+	
+	@Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		
     	http

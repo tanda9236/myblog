@@ -2,6 +2,7 @@ package com.tanda.myblog.service;
 
 import java.io.File;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,33 +50,47 @@ public class UserService {
 	}// 유저정보
 	
 	@Transactional
-	public void 닉네임수정(User user) {
-		User persistance = userRepository.findById(user.getId())
+	public User 닉네임수정(User user) {
+		User persistence = userRepository.findById(user.getId())
 				.orElseThrow(()->{
 					return new IllegalArgumentException("회원찾기 실패 : 아이디를 찾을 수 없습니다.");
 				});
-		persistance.setNickname(user.getNickname());
+		persistence.setNickname(user.getNickname());
+		persistence.setIntro(user.getIntro());
+		return persistence; // 변경된 사용자 객체 반환
 	}// 프로필 수정(닉네임)
 	
 	@Transactional
-	public void 닉네임수정(User user, MultipartFile file) throws Exception {
+	public User 닉네임수정(User user, MultipartFile file) throws Exception {
 	    User persistence = userRepository.findById(user.getId())
-				.orElseThrow(()->{
-					return new IllegalArgumentException("회원찾기 실패 : 아이디를 찾을 수 없습니다.");
-				});
-		UUID uuid = UUID.randomUUID();
-	    String fileName = uuid + "_" + file.getOriginalFilename();
-//	    String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files\\userProfile";
-	    String projectPath = "C:\\\\workspace\\\\myProjectFile\\\\profile_image\\";
-	    File saveFile = new File(projectPath, fileName);
-	    file.transferTo(saveFile);
-	    System.out.println("파일파일파일"+file);
-	    persistence.setProfileName(fileName);
-//	    persistence.setProfilePath("/files/userProfile/"+fileName);
-	    persistence.setProfilePath("/profileImage/"+fileName);
-	    
-		persistence.setNickname(user.getNickname());
-	}// 프로필 수정(닉네임, 이미지)
+	            .orElseThrow(() -> {
+	                return new IllegalArgumentException("회원찾기 실패 : 아이디를 찾을 수 없습니다.");
+	            });
+
+	    // 새 파일 저장
+	    UUID uuid = UUID.randomUUID();
+	    String newFileName = uuid + "_" + file.getOriginalFilename();
+	    String projectPath = "C:\\workspace\\myProjectFile\\profile_image\\";
+	    File newSaveFile = new File(projectPath, newFileName);
+	    file.transferTo(newSaveFile);
+
+	    // 이전 파일 삭제
+	    if (persistence.getProfileName() != null) {
+	        File oldFile = new File(projectPath, persistence.getProfileName());
+	        if (oldFile.exists()) {
+	            oldFile.delete();
+	        }
+	    }// 프로필 수정(닉네임, 소개, 이미지)
+
+	    System.out.println("새 파일 이름: " + newFileName);
+	    persistence.setProfileName(newFileName);
+	    persistence.setProfilePath("/profileImage/" + newFileName);
+	    persistence.setNickname(user.getNickname());
+	    persistence.setIntro(user.getIntro());
+
+	    return persistence; // 변경된 사용자 객체 반환
+	}
+
 	
 	@Transactional
 	public void 비밀번호수정(User user) {
@@ -89,4 +104,10 @@ public class UserService {
 		persistance.setPassword(encPassword);
 		persistance.setUpdateDate(currentTime);
 	}// 프로필 수정(비밀번호)
+	
+	@Transactional(readOnly = true)
+	public List<User> 유저목록(){
+		return userRepository.findAll();
+	}// 전체 유저 목록
+	
 }

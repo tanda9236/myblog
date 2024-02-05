@@ -42,7 +42,7 @@ public class UserController {
 			return "user/userProfile";
 		}
 		return "redirect:/";
-	}// 프로필 수정(닉네임) 페이지
+	}// 프로필 수정(닉네임, 이미지) 페이지
 	
 	@GetMapping("/password/{id}")
 	public String userPassword(@PathVariable int id, Model model, @AuthenticationPrincipal PrincipalDetails principal) {

@@ -36,6 +36,7 @@ public class User {
 	private String email;
 	
 	private String nickname;
+	private String intro;
 	
 	private String profileName;
 	private String profilePath;
@@ -52,12 +53,13 @@ public class User {
 	private Timestamp updateDate;
 	
 	@Builder
-	public User(String username, String password, String email, String nickname, String role, String provider, String providerId,
+	public User(String username, String password, String email, String nickname, String intro, String role, String provider, String providerId,
 			Timestamp createDate, Timestamp updateDate) {
 		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.nickname = nickname;
+		this.intro = intro;
 		this.role = role;
 		this.provider = provider;
 		this.providerId = providerId;

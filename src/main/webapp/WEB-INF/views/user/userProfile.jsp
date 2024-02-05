@@ -14,7 +14,6 @@
 				<c:if test="${empty principal.user.provider}">
 				<a class="my-profile-category my-bold" href="/password/${principal.user.id}" class=""><img class="dropdown-img" src="/image/password.png" style="padding-right: 1px;"/>비밀번호 변경</a>
 				</c:if>
-				<a class="my-profile-category my-bold" href="#!" class=""><img class="my-img-category" src="/image/no_profile_img.jpg" />메뉴3</a>
 			</div>
 		</div>
 		</div> <!-- side end -->
@@ -41,8 +40,16 @@
 							<div class="my-postInfo-right" >
 								<div class ="my-profile-info" >
 									<div class="my-profile-left">
+									<div class="my-profile-img-box">
 									<img src="${user.profilePath}" onerror="this.src='/image/no_profile_img.jpg'"/>
-									<input type="file" id="file"  name="file" accept=".png, .jpg, .jpeg, .gif">
+									</div>
+									<div id="fileContainer">
+									<div class="filebtn">
+										<label for="file">파일 선택</label>
+										</div>
+										<input type="file" id="file" name="file" accept=".png, .jpg, .jpeg, .gif" onchange="displayFileName()">
+										<div id="fileName"></div>
+									</div>
 									</div>
 									
 									<div class="my-profile-right">
@@ -50,15 +57,20 @@
 											<p class="my-mb1">이메일</p>
 											<input class="my-profile-input" type="text" placeholder="${user.email}" readonly="readonly">
 										</div>
-										<div>
+										<div class="my-mb1">
 											<p class="my-mb1">닉네임</p>
 											<p><input id="nickname" class="my-profile-input" type="text" value="${user.nickname}" maxlength="18"></p>
 											<input type="hidden" id="id" value="${principal.user.id}" />
+											<input type="hidden" id="username" value="${principal.user.username}" />
+										</div>
+										<div>
+											<p class="my-mb1">한 줄 소개</p>
+											<input id="intro" class="my-profile-input-long" type="text" value="${principal.user.intro}" />
 										</div>
 									</div>
 										
 								</div>
-							
+								
 								<div class="my-end my-font-small">
 									<p>가입일 : 
 									<c:set var="rawCreateDate" value="${user.createDate}" />
@@ -80,4 +92,16 @@
 	</div>
 </div>
 <script src="/js/user.js"></script>
+<script>
+function displayFileName() {
+    const input = document.getElementById('file');
+    const fileNameDisplay = document.getElementById('fileName');
+    
+    if (input.files.length > 0) {
+        fileNameDisplay.textContent = input.files[0].name;
+    } else {
+        fileNameDisplay.textContent = '';
+    }
+}
+</script>
 <%@ include file="../layout/footer.jsp"%>

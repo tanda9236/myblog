@@ -4,7 +4,7 @@
 
 <!-- Page header with logo and tagline-->
 <header>
-	<div class="my-header-text my-bg-img1">
+	<div class="my-header-text my-bg-img1 my-font1">
 		<h1>MyBlog</h1>
 		<p class="lead mb-0">stories and ideas</p>
 	</div>
@@ -22,7 +22,9 @@
 					<div class="card-header my-card-header">
 						<div class="my-postInfo-top justify-content-between">
 							<div class="my-postInfo-top">
-								<img class="my-profile-img my-mr1" src="${board.user.profilePath}" onerror="this.src='/image/no_profile_img.jpg'"/>
+							<div class="my-profile-img-box-s my-mr1">
+								<img class="" src="${board.user.profilePath}" onerror="this.src='/image/no_profile_img.jpg'"/>
+							</div>
 								<div class="my-bold">
 									<a class="my-writer" href="/${board.user.id}">${board.user.nickname}</a>
 								</div>
@@ -36,9 +38,13 @@
 						</div>
 					</div>
 					<div class="my-postInfo-middle">
-						<div class="my-postInfo-img">
-							<img alt="" src="${board.thumbnail}">
-						</div>
+					
+						<c:if test="${not empty board.thumbnail}">
+						    <div class="my-postInfo-img">
+						        <img alt="썸네일" src="${board.thumbnail}">
+						    </div>
+						</c:if>
+						
 						<div class="card-body my-postInfo-main">
 							<div class="my-postInfo-right">
 								<div class="my-postInfo-titlecontent">

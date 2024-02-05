@@ -14,12 +14,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.tanda.myblog.model.Board;
 import com.tanda.myblog.service.BoardService;
+import com.tanda.myblog.service.UserService;
 
 @Controller
 public class BoardController {
 	
 	@Autowired
 	private BoardService boardService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@GetMapping("/board/blogWrite")
 	public String blogWrite() {
@@ -31,12 +35,12 @@ public class BoardController {
 							@PageableDefault(size=2, sort="id", direction = Sort.Direction.DESC) Pageable pageable) {
 		Page<Board> userBoards = boardService.유저별글목록(id, pageable);
 	    model.addAttribute("boards", userBoards);
-	    
+	    model.addAttribute("user", userService.프로필(id));
 	    int pageBlock = 5;
-		int currentPage = boardService.유저별글목록(id, pageable).getNumber();
+		int currentPage = userBoards.getNumber();
 		int startPage=currentPage/pageBlock*pageBlock;
 		int endPage = startPage + pageBlock - 1;
-		int pageCount = boardService.유저별글목록(id, pageable).getTotalPages() - 1;
+		int pageCount = userBoards.getTotalPages() - 1;
 		if(endPage > pageCount) {
 			endPage = pageCount;
 		}		
@@ -49,14 +53,13 @@ public class BoardController {
 	
 	@GetMapping("/{userId}/board/{id}")
 	public String findByUserIdAndId(@PathVariable int userId, @PathVariable int id, Model model) {
-		
 	    model.addAttribute("board", boardService.글상세보기(userId, id));
+	    boardService.조회수(id);
 	    return "/board/blogDetails";
 	}// 게시글 상세보기 페이지
 	
 	@GetMapping("/board/{id}/blogUpdate")
 	public String blogUpdate(@PathVariable int id, Model model) {
-		
 	    model.addAttribute("board", boardService.글상세보기(id));
 	    return "/board/blogUpdate";
 	}// 게시글 수정 페이지
