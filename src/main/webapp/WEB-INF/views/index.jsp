@@ -2,21 +2,23 @@
 
 <%@ include file="layout/header.jsp"%>
 
-<!-- Page header with logo and tagline-->
+<!-- 페이지 태그라인 start -->
 <header>
 	<div class="my-header-text my-bg-img1 my-font1">
 		<h1>MyBlog</h1>
 		<p class="lead mb-0">stories and ideas</p>
 	</div>
 </header>
-<!-- Page content-->
+<!-- 페이지 태그라인 end -->
+
+<!-- 페이지 내용 start -->
 <div class="container">
 	<div class="row">
-		<!-- Blog entries-->
+		<!-- 페이지 내용 (좌측) start -->
 		<div class="col-lg-8">
 		<c:choose>
     	<c:when test="${not empty boards.content}">
-			<!-- Featured blog post-->
+			<!-- 글리스트 start -->
 			<c:forEach var="board" items="${boards.content}">
 				<div class="card mb-4">
 					<div class="card-header my-card-header">
@@ -38,13 +40,11 @@
 						</div>
 					</div>
 					<div class="my-postInfo-middle">
-					
 						<c:if test="${not empty board.thumbnail}">
 						    <div class="my-postInfo-img">
 						        <img alt="썸네일" src="${board.thumbnail}">
 						    </div>
 						</c:if>
-						
 						<div class="card-body my-postInfo-main">
 							<div class="my-postInfo-right">
 								<div class="my-postInfo-titlecontent">
@@ -60,7 +60,9 @@
 					</div>
 				</div>
 			</c:forEach>
-			<!-- Pagination-->
+			<!-- 글리스트 end -->
+			
+			<!-- 페이징 start -->
 			<div class="pagination justify-content-center my-4">
 				<c:choose>
 					<c:when test="${currentPage lt 5}">
@@ -89,8 +91,10 @@
 					</c:otherwise>
 				</c:choose>
 			</div>
+			<!-- 페이징 end -->
+			
 		</c:when>
-    		<c:otherwise>
+    		<c:otherwise> <!-- 게시글이 없을 때 -->
 			<div class="card mb-4">
 				<div class="my-postInfo-middle my-m-position my-col">
 				<h5>작성하신 게시글이 없습니다.</h5><br>
@@ -103,69 +107,58 @@
    		 	</c:otherwise>
 		</c:choose>	
 		</div>
+		<!-- 페이지 내용 (좌측) end -->
 		
-		<!-- Side widgets-->
+		<!-- 페이지 내용 (우측) start -->
 		<div class="col-lg-4">
-			<!-- Categories widget-->
-			<div class="card mb-4">
+			<div class="card mb-4"> <!-- Widget 1 -->
 				<div class="card-header my-card-header">카테고리</div>
 				<div class="card-body my-catrgory-box">
 					<div class="my-category">
-
 						<c:choose>
 							<c:when test="${empty principal}">
-								<a href="/loginForm" class="btn btn-success">내블로그</a>
+								<a href="/loginForm" class="btn btn-primary">내블로그</a>
 							</c:when>
 							<c:otherwise>
-								<a href="/${principal.user.id}" class="btn btn-success">내블로그</a>
+								<a href="/${principal.user.id}" class="btn btn-primary">내블로그</a>
 							</c:otherwise>
 						</c:choose>
-
-						<a href="/board/blogWrite" class="btn btn-success">글쓰기</a> <a href="#!" class="btn btn-primary" onclick="alert('준비중!')">ToDo</a>
+						<a href="#!" class="btn btn-dark" onclick="alert('준비중!')"></a>
+						<a href="#!" class="btn btn-danger" onclick="alert('준비중!')">준비중!</a>
 					</div>
-					<div class="my-category">
-						<a href="#!" class="btn btn-dark" onclick="alert('준비중!')">준비중!</a> <a href="#!" class="btn btn-dark" onclick="alert('준비중!')">준비중!</a> <a href="#!" class="btn btn-danger" onclick="alert('준비중!')">준비중!</a>
+					<div class="my-category-down">
+						<a href="/board/blogWrite" class="btn btn-success">글쓰기</a>
 					</div>
 				</div>
 			</div>
-			<!-- Recomend widget-->
-			<div class="card mb-4">
+			<div class="card mb-4"> <!-- Widget 2 -->
 				<div class="card-header my-card-header">추천</div>
 				<div class="card-body">...</div>
 			</div>
-			<!-- Side widget-->
-			<div class="card mb-4">
-				<div class="card-header my-card-header">위젯</div>
+			<div class="card mb-4"> <!-- Widget 3 -->
+				<div class="card-header my-card-header">날씨</div>
 				<div class="card-body">
-
 					<div class="weather-box">
 						<div>
-							<h5 class="city"></h5>
-							<p class="icon"></p>
-							<div class="my-row my-center">
-								<p class="ctemp"></p><p>°C</p>
-							</div>
+							<h5 class="city"></h5><p class="icon"></p>
+							<div class="my-row my-center"><p class="ctemp"></p><p>°C</p></div>
 						</div>
 						<div class="weather2">
-							<h5 class="city"></h5>
-							<p class="icon"></p>
-							<div class="my-row my-center">
-								<p class="ctemp"></p><p>°C</p>
-							</div>
+							<h5 class="city"></h5><p class="icon"></p>
+							<div class="my-row my-center"><p class="ctemp"></p><p>°C</p></div>
 						</div>
 						<div>
-							<h5 class="city"></h5>
-							<p class="icon"></p>
-							<div class="my-row my-center">
-								<p class="ctemp"></p><p>°C</p>
-							</div>
+							<h5 class="city"></h5><p class="icon"></p>
+							<div class="my-row my-center"><p class="ctemp"></p><p>°C</p></div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- 페이지 내용 (우측) end -->
 	</div>
 </div>
+<!-- 페이지 내용 end -->
 
-<script src="/js/weather.js"></script>
+<script src="/js/features/weather.js"></script>
 <%@ include file="layout/footer.jsp"%>

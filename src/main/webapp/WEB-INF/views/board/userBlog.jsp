@@ -2,21 +2,23 @@
 
 <%@ include file="../layout/header.jsp"%>
 
-<!-- Page header with logo and tagline-->
+<!-- 페이지 태그라인 start -->
 <header>
 	<div class="my-header-text my-bg-img2">
 		<h1>${user.nickname}의 블로그</h1>
 		<h4 class="mb-0 my-mt0">${user.intro}</h4>
 	</div>
 </header>
-<!-- Page content-->
+<!-- 페이지 태그라인 end -->
+
+<!-- 페이지 내용 start -->
 <div class="container">
 	<div class="row">
-		<!-- Blog entries-->
+		<!-- 페이지 내용 (좌측) start -->
 		<div class="col-lg-8">
 		<c:choose>
     	<c:when test="${not empty boards.content}">
-			<!-- Featured blog post-->
+			<!-- 글리스트 start -->
 			<c:forEach var="board" items="${boards.content}">
 			<div class="card mb-4">
 				<div class="card-header my-card-header">
@@ -48,7 +50,6 @@
 								<h2 class="card-title my-postInfo-title">${board.title}</h2>
 								<div class="card-text my-postInfo-content">${board.content}</div>
 							</div>
-
 							<div class="my-end my-font-small">
 								<p>댓글 ${board.replyCount} 좋아요 0</p>
 								<a class="btn btn-dark my-ml1" href="/${board.user.id}/board/${board.id}">More ></a>
@@ -56,9 +57,9 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 			</c:forEach>
+			<!-- 글리스트 end -->
 			
 			<!-- 페이징 start -->
 			<div class="pagination justify-content-center my-4">
@@ -90,9 +91,9 @@
 				</c:choose>
 			</div>
 			<!-- 페이징 end -->
+			
 		</c:when>
-    		<c:otherwise>
-<!-- ㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅ -->
+    		<c:otherwise> <!-- 게시글이 없을 때 -->
 			<div class="card mb-4">
 				<div class="my-postInfo-middle my-m-position my-col">
 				<h5>작성하신 게시글이 없습니다.</h5><br>
@@ -102,45 +103,82 @@
 					</div>
 				</div>
 			</div>      		  
-<!-- ㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅㅅ -->
    		 	</c:otherwise>
 		</c:choose>
 		</div>
+		<!-- 페이지 내용 (좌측) end -->
 		
-		<!-- Side widgets-->
+		<!-- 페이지 내용 (우측) start -->
 		<div class="col-lg-4">
-			<!-- Categories widget-->
-			<div class="card mb-4">
+			<div class="card mb-4"> <!-- Widget 1 -->
 				<div class="card-header my-card-header">카테고리</div>
 				<div class="card-body my-catrgory-box">
 					<div class="my-category">
-						<a href="/${principal.user.id}" class="btn btn-success">내블로그</a>
-						<a href="/board/blogWrite" class="btn btn-success">글쓰기</a>
-						<a href="#!" class="btn btn-primary" onclick="alert('준비중!')">ToDo</a>
+						<a href="#!" class="btn btn-primary" onclick="alert('준비중!')">준비중</a>
+						<a href="#!" class="btn btn-primary" onclick="alert('준비중!')">준비중</a>
+						<c:choose>
+							<c:when test="${empty principal}">
+								<a class="btn btn-danger" onclick="alert('로그인 후 이용하실 수 있습니다.')">후원</a>
+							</c:when>
+							<c:otherwise>
+								<a class="btn btn-danger" onclick="openDonate()">후원</a>
+							</c:otherwise>
+						</c:choose>
 					</div>
-					<div class="my-category">
-						<a href="#!" class="btn btn-dark" onclick="alert('준비중!')">메인과</a>
-						<a href="#!" class="btn btn-dark" onclick="alert('준비중!')">다른거</a>
-						<a href="#!" class="btn btn-danger" onclick="alert('준비중!')">あかさ</a>
+					<div class="my-category-down">
+						<a href="/board/blogWrite" class="btn btn-success">글쓰기</a>
 					</div>
 				</div>
 			</div>
-			<!-- Recomend widget-->
-			<div class="card mb-4">
+			<div class="card mb-4"> <!-- Widget 2 -->
+			<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
 				<div class="card-header my-card-header">추천</div>
 				<div class="card-body">...</div>
 			</div>
-			<!-- Side widget-->
-			<div class="card mb-4">
+			<div class="card mb-4"> <!-- Widget 3 -->
 				<div class="card-header my-card-header">위젯</div>
 				<div class="card-body">기타 API</div>
 			</div>
 		</div>
+		<!-- 페이지 내용 (우측) end -->
 	</div>
 </div>
+<!-- 페이지 내용 end -->
+
+<!-- Modal Start -->
+<div id="myModal" class="modal">
+	<div class="my-modal-content">
+		<span class="md-close">&times;</span>
+		<div class="donate-info">
+			<img class="donate-img" src="${user.profilePath}" onerror="this.src='/image/no_profile_img.jpg'" alt="profile">
+			<div class="donate-text">
+				<h4 class="my-bold">${user.nickname}</h4>
+				<p>이 블로그에 후원</p>
+			</div>
+		</div>
+		<div class="text-center my-mt1">
+			<input id="payeeId" type="hidden" value="${user.id}">
+			<input id="blogName" type="hidden" value="${user.nickname}">
+			<input id="nickname" type="hidden" value="${principal.user.nickname}">
+			<input id="email" type="hidden" value="${principal.user.email}">
+			<input id="price" type="hidden" value="1990">
+			<p>₩1,990</p>
+			<div class="button-container-2 my-mt4" style="width: 120px;">
+				<span class="mas">후원</span>
+				<button id="pay-btn">후원</button>
+				<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+				<script src="/js/payment.js"></script>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal End -->
+
 <div class="my-side-btn">
 	<a id="scr_btn" href="#">
 		<img src="../image/top.png" alt="top">
 	</a>
 </div>
+
+<script src="/js/features/modal.js"></script>
 <%@ include file="../layout/footer.jsp"%>

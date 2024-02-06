@@ -1,3 +1,4 @@
+// 무한 슬라이드 Test
 var slides = document.querySelector('.slides'),
 	slide = document.querySelectorAll('.slides li'),
 	currentIdx = 0,

@@ -1,3 +1,4 @@
+// 날씨
 var cities = ['Seoul', 'Busan', 'Incheon'];
 
 var apiKey = 'ba939557ede20833440726417d9f3f0f';

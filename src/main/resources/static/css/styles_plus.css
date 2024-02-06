@@ -13,12 +13,15 @@ body {
 p {
 	margin: 0;
 }
-hr{
+
+hr {
 	margin: 5px 0;
 }
+
 .my-font1 {
 	font-family: 'deathrattlebb';
 }
+
 .my_icon {
 	height: 46px;
 	border: none;
@@ -78,15 +81,8 @@ hr{
 	color: white;
 }
 
-@media ( max-width : 768px) {
-	.your-email, .my-login-link {
-/* 		display: none; */
-	}
-}
-
 .my-logo {
 	width: 140px;
-	/* 	margin-left: 30px; */
 }
 
 .my-logo a {
@@ -95,7 +91,7 @@ hr{
 	text-decoration: none;
 	font-size: 36px;
 	width: 140px;
-    display: block;
+	display: block;
 }
 
 .my-nav-btn-box {
@@ -114,23 +110,25 @@ hr{
 	justify-content: center;
 	color: white;
 }
-.my-profile-img-box-s{
+
+.my-profile-img-box-s {
 	border-radius: 50%;
-/* 	aspect-ratio: auto 32/32; */
 	width: 38px;
 	height: 38px;
-    overflow: hidden;
-    position: relative;
+	overflow: hidden;
+	position: relative;
 }
-.my-profile-img-box-s > img{
+
+.my-profile-img-box-s>img {
 	position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
+
 .my-profile-img {
 	aspect-ratio: auto 32/32;
 	width: 38px;
@@ -159,8 +157,6 @@ hr{
 	border-radius: 25px;
 	font-size: 16px;
 	font-weight: 700;
-/* 	overflow: hidden; */
-/* 	overflow-x: hidden; */
 }
 
 #searchbar .my-input {
@@ -191,7 +187,6 @@ hr{
 	color: white;
 	flex-direction: column;
 	justify-content: center;
-/* 	background-image: url('../image/dark_img1.jpg'); */
 	background-size: cover;
 	margin-bottom: 25px;
 }
@@ -238,8 +233,7 @@ hr{
 }
 
 .side-write {
-/* 	background: white; */
-	margin-bottom:10px;
+	margin-bottom: 10px;
 	width: 52px;
 	height: 52px;
 	border-radius: 50%;
@@ -253,6 +247,7 @@ hr{
 	text-decoration: none;
 	font-family: 'deathrattlebb';
 }
+
 .side-write:hover {
 	color: black;
 	text-decoration: none;
@@ -293,21 +288,22 @@ hr{
 	object-fit: cover;
 	border-radius: inherit;
 }
-.my-postInfo-titlecontent{
-/* 	width: 100%; */
-/* 	height: 100%; */
+
+.my-postInfo-titlecontent {
 	overflow: hidden;
 }
+
 .my-postInfo-title {
 	height: 45px;
 	white-space: nowrap;
-  	overflow: hidden;
- 	text-overflow: ellipsis;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
+
 .my-postInfo-content {
-/* 	max-width: 100%; */
-    max-height: 69px;        /* 나중에 ... 처리하기 */
-/* 	text-overflow: ellipsis; */
+	/* 	max-width: 100%; */
+	max-height: 69px; /* ... 처리 */
+	/* 	text-overflow: ellipsis; */
 }
 
 .my-postInfo-right {
@@ -316,6 +312,7 @@ hr{
 	flex-direction: column;
 	justify-content: space-between;
 }
+
 .my-postInfo-bet {
 	display: flex;
 	flex-direction: row;
@@ -323,14 +320,15 @@ hr{
 	align-items: center;
 	padding: 20px 15px 50px 25px;
 }
+
 .my-profile-info {
 	height: 100%;
 	display: flex;
 	flex-direction: row;
-/* 	justify-content: space-between; */
 	align-items: center;
 }
-.my-profile-category{
+
+.my-profile-category {
 	display: flex;
 	align-items: center;
 	padding-left: 10px;
@@ -341,7 +339,8 @@ hr{
 	color: white;
 	text-decoration: none;
 }
-.my-profile-category:hover{
+
+.my-profile-category:hover {
 	color: white;
 	background: #333333;
 }
@@ -349,52 +348,46 @@ hr{
 .my-profile-category.active {
 	background: #333333;
 }
-/* .my-profile-category:active{ */
-/* 	color: white; */
-/* 	background: #333333; */
-/* } */
 
-.my-profile-input{
+.my-profile-input {
 	width: 100%;
 	height: 50px;
 	border-radius: 10px;
 	padding-left: 15px;
 }
-.my-profile-input-long{
+
+.my-profile-input-long {
 	width: 100%;
 	height: 50px;
 	border-radius: 10px;
 	padding-left: 15px;
 }
-.my-profile-left{
+
+.my-profile-left {
 	width: 100px;
 	height: 100px;
 	margin: 10px 26px 10px 10px;
 }
-.my-profile-left > img {
-/* 	width: 100%; */
-/* 	height: 100%; */
-/* 	border-radius: 50%; */
-/* 	overflow: hidden; */
-}
-.my-profile-img-box{
+
+.my-profile-img-box {
 	border-radius: 50%;
 	width: 100px;
-    height: 100px;
-    overflow: hidden;
-    position: relative;
+	height: 100px;
+	overflow: hidden;
+	position: relative;
 }
-.my-profile-img-box > img{
+
+.my-profile-img-box>img {
 	position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
-.my-profile-right{
+
+.my-profile-right {
 	width: calc(100% - 152px);
 }
 
@@ -404,6 +397,7 @@ hr{
 	height: 20px;
 	border-radius: 50%;
 }
+
 .my-postInfo-main {
 	width: calc(100% - 200px);
 	height: 200px;
@@ -417,7 +411,6 @@ hr{
 
 .my-card-header {
 	background: linear-gradient(to right, #181818, #232526, #414141);
-	/* 	background-color: #1b2021; */
 	border-bottom: #1b2021 2px solid;
 }
 
@@ -431,7 +424,7 @@ hr{
 }
 
 .my-end {
-	height:38px;
+	height: 38px;
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-end;
@@ -448,6 +441,13 @@ hr{
 	display: flex;
 }
 
+.my-category-down {
+	padding: 0;
+	display: flex;
+	justify-content: space-around;
+	display: flex;
+}
+
 .my-catrgory-box {
 	padding: 8px 3px 8px 3px;
 	height: 125px;
@@ -455,12 +455,13 @@ hr{
 	flex-direction: column;
 	justify-content: space-between;
 }
+
 .my-category-box-info {
 	padding: 8px 3px 8px 3px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .my-category a {
@@ -470,7 +471,18 @@ hr{
 	margin: 0;
 	width: 30%;
 	height: 50px;
-	/* 	border-bottom: #3f3f3f 1px solid; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.my-category-down a {
+	padding: 0;
+	text-decoration: none;
+	color: white;
+	margin: 0;
+	width: 96.5%;
+	height: 50px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -478,31 +490,27 @@ hr{
 
 .my-pre-page {
 	border-top-left-radius: var(--bs-pagination-border-radius);
-    border-bottom-left-radius: var(--bs-pagination-border-radius);
+	border-bottom-left-radius: var(--bs-pagination-border-radius);
 }
+
 .my-next-page {
 	border-top-right-radius: var(--bs-pagination-border-radius);
-    border-bottom-right-radius: var(--bs-pagination-border-radius);
+	border-bottom-right-radius: var(--bs-pagination-border-radius);
 }
 
-
-
-
-
-
-
-/* =================  로그인 =============================================== */
+/* ======================== 로그인 ======================== */
 .my-err-msg {
 	margin-top: -328px;
 	position: relative;
 	left: 50%;
-    transform: translateX(-50%);
+	transform: translateX(-50%);
 	width: 500px;
 	font-size: 13px;
 	color: red;
 	text-align: center;
 	font-weight: bold;
 }
+
 .my-btn-login:hover {
 	background: #212529;
 	border: none;
@@ -527,23 +535,25 @@ hr{
 .my-fs2 {
 	font-size: 20px;
 }
+
 .my-fs3 {
 	font-size: 18px;
 }
-.my-m-position{
+
+.my-m-position {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-.my-col{
+
+.my-col {
 	flex-direction: column;
 }
+
 .my-login {
-	/* 	margin-top: 30px; */
 	margin-bottom: 130px;
 	width: 500px;
 	height: 400px;
-/* 		background: linear-gradient(to bottom  right, #181818, #232526, #414141); */
 	background: #1a1a1a;
 	border-radius: 20px;
 }
@@ -558,7 +568,6 @@ hr{
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-	/* 	background: white; */
 }
 
 .my-login-form div {
@@ -566,7 +575,6 @@ hr{
 }
 
 .my-join {
-	/* 	margin-top: 30px; */
 	margin-bottom: 130px;
 	width: 500px;
 	height: 400px;
@@ -575,7 +583,6 @@ hr{
 }
 
 .my-input {
-	/* 	width: 350px; */
 	margin-left: 20px;
 }
 
@@ -588,29 +595,34 @@ hr{
 .my-oauth-login a {
 	margin: 0 5px 0 5px;
 }
+
 .start-blog {
 	background: linear-gradient(to right, #181818, #232526, #414141);
 	text-decoration: none;
 	padding: 5px 20px 5px 20px;
 	border-radius: 10px;
 }
-/* =========================================== */
-.my-box-underline{
+/* ======================== ... ======================== */
+.my-box-underline {
 	border-bottom: #212529 1.5px solid;
 }
 
-.my-w2{
+.my-w2 {
 	width: 520px;
 }
+
 .my-mr1 {
 	margin-right: 12px;
 }
-.my-mr2{
+
+.my-mr2 {
 	margin-right: 16px;
 }
+
 .my-ml1 {
 	margin-left: 12px;
 }
+
 .my-ml2 {
 	margin-left: 16px;
 }
@@ -630,32 +642,38 @@ hr{
 .my-mt2 {
 	margin-top: 80px;
 }
+
 .my-mt3 {
 	margin-top: 20px;
+}
+
+.my-mt4 {
+	margin-top: 12px;
 }
 
 .my-mb1 {
 	margin-bottom: 8px;
 }
+
 .my-mb2 {
 	margin-bottom: 20px;
 }
+
 .my-mb3 {
 	margin-bottom: 35px;
 }
-
 
 .my-sb {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 }
+
 .my-sb-or {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: flex-end;
-	
 }
 
 .my-fc-71 {
@@ -667,10 +685,12 @@ hr{
 	color: white;
 	text-decoration: none;
 }
-a.my-fc-w{
+
+a.my-fc-w {
 	color: white;
 	text-decoration: none;
 }
+
 p.my-fc-w {
 	font-size: 20px;
 	font-weight: bold;
@@ -687,6 +707,7 @@ a.my-fc-71:hover {
 .my-mlr-1 {
 	margin: 0 5px 0 5px;
 }
+
 .my-float-right {
 	text-align: right;
 }
@@ -702,12 +723,15 @@ a.my-fc-71:hover {
 .my-bg-warning {
 	background: linear-gradient(to right, #F7971E, #F37335);
 }
+
 .my-bg-danger {
 	background: linear-gradient(to right, #8E0E00, #b31217);
 }
+
 a.my-bg-warning:hover {
 	background: linear-gradient(to right, #ffb347, #ffcc33);
 }
+
 a.my-bg-danger:hover {
 	background: linear-gradient(to right, #D31027, #EA384D);
 }
@@ -727,7 +751,7 @@ img {
 	-moz-user-drag: none;
 	-o-user-drag: none;
 }
-/* 오버라이드 */
+/* ======================== 페이지버튼 오버라이드 ======================== */
 .page-link {
 	color: white;
 	background-color: #212529;
@@ -756,25 +780,318 @@ img {
 
 .page-link.disabled, .disabled>.page-link {
 	background-color: #1b2021;
+	color: #424649;
+	font-weight: bold;
 	border: none;
 }
-/**/
+/* ======================== 파일 업로드 ======================== */
 #fileContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
+
 #file {
 	display: none;
 }
-.filebtn{
+
+.filebtn {
 	margin-top: 10px;
 	border: 1px white solid;
 }
-.filebtn > label {
+
+.filebtn>label {
 	margin: 0 3px 0 3px;
 }
-/* ===================================================== 테스트*/
+
+/* ======================== 글 상세 ======================== */
+.my-details-body {
+	width: 850px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+
+.my-details {
+	width: 850px;
+	margin: 0 0 30px 0;
+}
+
+.my-details-middle {
+	padding: 30px;
+	background: #121212;
+	border-radius: 5px 5px 0 0;
+}
+
+.my-box-end {
+	height: 8px;
+	background: linear-gradient(to right, #181818, #232526, #414141);
+	border-radius: 0 0 5px 5px;
+}
+
+.my-box-start {
+	height: 8px;
+	background: linear-gradient(to right, #181818, #232526, #414141);
+	border-radius: 5px 5px 0 0;
+}
+
+.my-details-title {
+	color: white;
+	font-size: 36px;
+	font-weight: bold;
+}
+
+.my-details-info {
+	color: white;
+	font-size: 16px;
+	padding: 30px 0 40px 0;
+}
+
+.my-details-content {
+	color: white;
+}
+
+.my-writer {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.my-writer:hover {
+	color: white;
+	text-decoration: underline;
+}
+
+.my-reply-write {
+	resize: none;
+	padding: 1rem 1rem 1.5rem;
+	outline: none;
+	border: 1px solid #2A2A2A;;
+	margin-bottom: 0.5rem;
+	margin-top: 1rem;
+	width: 100%;
+	border-radius: 4px;
+	min-height: 6.125rem;
+	font-size: 1rem;
+	color: #ECECEC;;
+	line-height: 1.75;
+	background: #1E1E1E;;
+}
+
+.my-reply-box {
+	padding: 25px;
+}
+
+.my-reply-top {
+	margin: 10px 10px 10px 0px;
+}
+
+.my-btn-small {
+	color: whitesmoke;
+	background: linear-gradient(to right, #8E0E00, #b31217);
+	border: none;
+	font-weight: bold;
+}
+
+.my-btn-small:hover {
+	color: whitesmoke;
+	background: linear-gradient(to right, #610B0B, #8A0808);
+}
+
+.my-row-reverse {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.my-badge {
+	border-radius: 4px;
+	color: whitesmoke;
+	background: #212529;
+	border: none;
+}
+
+.my-badge:hover {
+	background: #373b3e;
+}
+
+/* ======================== 드롭다운(프로필) ======================== */
+.dropdown {
+	position: relative;
+}
+
+.dropdown-img {
+	margin-right: 16px;
+	width: 20px;
+	height: 20px
+}
+
+.dropdown-elm {
+	height: 40px;
+	padding: 0 16px;
+}
+
+.dropdown-elm-top {
+	height: 60px;
+	padding: 0 16px;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background-color: #1a1a1a;
+	width: 240px;
+	z-index: 1;
+	border-radius: 10px;
+	padding: 8px 0;
+}
+
+.dropdown-content a {
+	display: block;
+	text-decoration: none;
+	color: whitesmoke;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.dropdown-toggle.clicked .dropdown-content {
+	display: block;
+}
+
+/* ======================== 날씨창 ======================== */
+.weather-box {
+	width: 100%;
+	display: flex;
+}
+
+.weather-box>div {
+	flex: 1;
+	box-sizing: border-box;
+	padding: 10px 0;
+	text-align: center;
+	border-radius: 8px;
+	background: linear-gradient(to bottom right, #182848, #2B32B2);
+}
+
+.weather-box>div>* {
+	margin: 0;
+}
+
+.weather2 {
+	margin: 0 16px 0 16px;
+}
+
+.my-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.my-center {
+	justify-content: center;
+}
+
+/* ======================== 검색창 ======================== */
+.my-section-s {
+	width: 100%;
+	height: 100%;
+}
+
+.my-section-s>input {
+	width: 87%;
+	height: 100%;
+	background: inherit;
+	border: none;
+}
+
+.my-section-s>input:focus {
+	outline: none;
+}
+
+.autocomplete>div {
+	background: whitesmoke;
+	height: 40px;
+	display: flex;
+	margin: 0 0px 0px -20px;
+	padding: 0px 0px 0px 15px;
+	border-radius: 3px;
+	width: 100%;
+	align-items: center;
+	cursor: pointer;
+}
+
+.autocomplete>div.active {
+	background: silver;
+}
+
+.autocomplete>div:hover {
+	text-decoration: underline;
+}
+
+mark {
+	background: gray;
+	border-radius: 5px;
+	padding: 0.1em;;
+}
+
+/* ======================== 모달창 ======================== */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1001;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.my-modal-content {
+	background-color: #1a1a1a;
+	border-radius: 20px;
+	color: white;
+	margin: 15% auto;
+	padding: 10px 20px 10px 20px;
+	border: 1px solid #888;
+	width: 435px;
+	height: 280px;
+	border: none;
+}
+
+.md-close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.md-close:hover, .md-close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.donate-info {
+	display: flex;
+	align-items: center;
+	padding: 30px 0 0 20px;
+}
+
+.donate-img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+
+.donate-text {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+/* ======================== 애니메이션 버튼 1  ======================== */
 .button-container-2 {
 	position: relative;
 	width: 180px;
@@ -784,13 +1101,11 @@ img {
 	overflow: hidden;
 	transition: 0.5s;
 	border-radius: 20px;
-	
 }
 
 .button-container-2 button {
 	width: 101%;
 	height: 100%;
-/* 	background: linear-gradient(to right, silver, gray); */
 	background: linear-gradient(to right, #232526, #414141);
 	color: white;
 	-webkit-mask:
@@ -803,11 +1118,11 @@ img {
 	cursor: pointer;
 	-webkit-animation: ani2 0.7s steps(29) forwards;
 	animation: ani2 0.7s steps(29) forwards;
-/* 	추가 */
+	/* 	추가 */
 	position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .button-container-2 button:hover {
@@ -825,15 +1140,15 @@ img {
 	position: absolute;
 	overflow: hidden;
 	display: flex;
-    align-items: center;
-    justify-content: center;
-    /* 	추가 */
-    border-radius: 20px;
+	align-items: center;
+	justify-content: center;
+	/* 	추가 */
+	border-radius: 20px;
 	position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-/*     margin-top: 0.5px; */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/*     margin-top: 0.5px; */
 }
 
 @-webkit-keyframes ani {from { -webkit-mask-position:00;
@@ -874,223 +1189,4 @@ to {
 	-webkit-mask-position: 0 0;
 	mask-position: 0 0;
 }
-}
-
-/* ============================== 상세보기 =================================*/
-.my-details-body{
-	width: 850px;
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
-	
-}
-.my-details{
-	width: 850px;
-	margin: 0 0 30px 0;
-/* 	background: #666666; */
-}
-.my-details-middle{
-	padding: 30px;
-	background: #121212;
-	border-radius: 5px 5px 0 0;
-}
-.my-box-end{
-	height: 8px;
-/* 	margin-bottom: 16px; */
-	background: linear-gradient(to right, #181818, #232526, #414141);
-	border-radius: 0 0 5px 5px;
-}
-.my-box-start{
-	height: 8px;
-/* 	margin-bottom: 16px; */
-	background: linear-gradient(to right, #181818, #232526, #414141);
-	border-radius: 5px 5px 0 0;
-}
-.my-details-title{
-	color: white;
-	font-size: 36px;
-	font-weight: bold;
-}
-.my-details-info{
-	color: white;
-	font-size: 16px;
-	padding: 30px 0 40px 0;
-}
-.my-details-content{
-	color: white;
-/* 	font-size: 16px; */
-}
-.my-writer{
-	color: white;
-	text-decoration: none;
-	font-weight: bold;
-	font-size: 18px;
-}
-.my-writer:hover{
-	color: white;
-	text-decoration: underline;
-}
-
-.my-reply-write {
-	resize: none;
-    padding: 1rem 1rem 1.5rem;
-    outline: none;
-    border: 1px solid #2A2A2A;;
-    margin-bottom: 0.5rem;
-    margin-top: 1rem;
-    width: 100%;
-    border-radius: 4px;
-    min-height: 6.125rem;
-    font-size: 1rem;
-    color: #ECECEC;;
-    line-height: 1.75;
-    background: #1E1E1E;;
-}
-.my-reply-box{
-	padding: 25px;
-}
-.my-reply-top{
-	margin: 10px 10px 10px 0px;
-}
-.my-btn-small{
-	color: whitesmoke;
-	background: linear-gradient(to right, #8E0E00, #b31217);
-	border: none;
-	font-weight: bold;
-}
-.my-btn-small:hover{
-	color: whitesmoke;
-	background: linear-gradient(to right, #610B0B, #8A0808);
-}
-.my-row-reverse{
-	display: flex;
-    flex-direction: row-reverse;
-}
-.my-badge {
-	border-radius: 4px;
-	color: whitesmoke;
-	background: #212529;
-	border: none;
-}
-.my-badge:hover {
-	background: #373b3e;
-}
-/* =============================================================== 드롭다운 ==== */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-img{
-	margin-right: 16px;
-	width: 20px;
-	height: 20px
-}
-
-.dropdown-elm{
-	height: 40px;
-	padding: 0 16px;
-}
-.dropdown-elm-top{
-	height: 60px;
-	padding: 0 16px;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #1a1a1a;
-    width: 240px;
-    z-index: 1;
-    border-radius: 10px;
-    padding: 8px 0;
-}
-
-.dropdown-content a {
-    display: block;
-    text-decoration: none;
-    color: whitesmoke;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.dropdown-toggle.clicked .dropdown-content {
-    display: block;
-}
-
-/* ====================================================================== */
-.weather-box {
-	width: 100%;
-  	display: flex;
-}
-
-.weather-box > div {
-	flex: 1;
-/* 	border: 1px solid #ccc; */
-	box-sizing: border-box;
-	padding: 10px 0;
-	text-align: center;
-	border-radius: 8px;
-	background: linear-gradient(to bottom right, #182848, #2B32B2);
-}
-.weather-box > div > * {
-	margin: 0;
-}
-.weather2 {
-	margin: 0 16px 0 16px;
-}
-.my-row{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-}
-.my-center{
-	justify-content: center;
-}
-/*//////////////////////////////////////////////////////////////////////*/
-section {
-/*   width: 300px; */
-/*   padding: 1.5rem 1.6rem; */
-/*   box-shadow: 0 0 1rem rgba(0, 0, 0, .05);   */
-/*   border-radius: 5px; */
-/*   display: flex; */
-/*   flex-direction: column; */
-/*   justify-content: center; */
-/*   background: #fff; */
-/*   margin-top: 2rem; */
-}
-.my-section-s{
-	width: 100%;
-	height: 100%;
-}
-.my-section-s > input{
-	width: 87%;
-	height: 100%;
-	background: inherit;
-	border: none;
-}
-.my-section-s > input:focus {
-	outline: none;
-}
-.autocomplete > div {
-	background: whitesmoke;
-    height: 40px;
-    display: flex;
-    margin: 0 0px 0px -20px;
-    padding: 0px 0px 0px 15px;
-    border-radius: 3px;
-    width: 100%;
-    align-items: center;
-    cursor: pointer;
-}
-.autocomplete > div.active {
-	background: silver;
-}
-.autocomplete > div:hover {
-	text-decoration: underline;
-}
-mark {
-	background: gray;
-	border-radius: 5px;
-	padding: 0.1em;;
 }

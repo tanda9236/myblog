@@ -1,3 +1,4 @@
+// 썸머노트 커스텀
 $(document).ready(function() {
 	$('#summernote').summernote({
 		placeholder : '',
@@ -5,7 +6,6 @@ $(document).ready(function() {
 		height: 530,
 		minHeight : 530,
 		maxHeight : 530,
-// 		focus : true,
 		disableResizeEditor : true,
 		lang : 'ko-KR',
 		toolbar : [
@@ -28,6 +28,8 @@ $(document).ready(function() {
 	}
 	});
 });
+
+// 썸머노트 이미지 저장 이름형식 변경
 function uploadSummernoteImageFile(file, editor) {
     data = new FormData();
     data.append("file", file);

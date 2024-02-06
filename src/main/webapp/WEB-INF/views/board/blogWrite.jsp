@@ -2,6 +2,7 @@
 
 <%@ include file="../layout/header.jsp"%>
 
+<!-- 글작성 start -->
 <div class="my-write-middle">
 	<form>
 		<div>
@@ -18,11 +19,8 @@
 		</div>
 	</div>
 </div>
-<div class="my-side-btn">
-	<a id="scr_btn" href="#">
-		<img src="../image/top.png" alt="top">
-	</a>
-</div>
+<!-- 글작성 start -->
+
 <script src="/js/my_summernote.js"></script>
 <script src="/js/board.js"></script>
 <%@ include file="../layout/footer.jsp"%>

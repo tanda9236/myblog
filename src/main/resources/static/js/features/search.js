@@ -1,3 +1,4 @@
+// 검색(닉네임)
 const dataList = userListNickname;
 const dataUrl = userListId;
 console.log(dataList);

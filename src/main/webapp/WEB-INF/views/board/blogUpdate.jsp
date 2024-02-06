@@ -2,6 +2,7 @@
 
 <%@ include file="../layout/header.jsp"%>
 
+<!-- 글작성 start -->
 <div class="my-write-middle">
 	<form>
 	<input type="hidden" id="id" value="${board.id}"/>
@@ -20,6 +21,8 @@
 		</div>
 	</div>
 </div>
+<!-- 글작성 end -->
+
 <script src="/js/my_summernote.js"></script>
 <script src="/js/board.js"></script>
 <%@ include file="../layout/footer.jsp"%>

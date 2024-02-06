@@ -13,13 +13,14 @@ let index = {
 			this.replySave();
 		});
 	},
-
+	
+	// 글작성
 	save: function() {
-		
 		let title = $("#title").val();
+		
 		if (!title) {
-        alert('Title을 입력해주세요');
-        return;
+        	alert('Title을 입력해주세요');
+        	return;
     	}
     	
 		let data = {
@@ -41,6 +42,7 @@ let index = {
 		});
 	},
 
+	// 글삭제
 	deleteById: function() {
 		if (confirm("정말로 삭제하시겠습니까?\n( 복구할 수 없습니다 )")) {
 			let id = $("#id").text();
@@ -57,10 +59,12 @@ let index = {
 			});
 		}
 	},
-
+	
+	// 글수정
 	update: function() {
 		let id = $("#id").val();
 		let title = $("#title").val();
+		
 		if (!title) {
         alert('Title을 입력해주세요');
         return;
@@ -85,6 +89,7 @@ let index = {
 		});
 	},
 	
+	// 댓글작성	
 	replySave: function() {
 		let content = $("#reply-content").val()
 		
@@ -112,7 +117,8 @@ let index = {
 			alert(JSON.stringify(error));
 		});
 	},
-
+	
+	// 댓글삭제
 	replyDelete: function(boardId, replyId) {
 		if (confirm("정말로 삭제하시겠습니까?\n( 복구할 수 없습니다 )")) {
 			$.ajax({

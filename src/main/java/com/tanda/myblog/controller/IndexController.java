@@ -20,9 +20,6 @@ public class IndexController {
 	@Autowired
 	private BoardService boardService;
 	
-	@Autowired
-	private UserService userService;
-	
 	@GetMapping({"","/"})
 	public String index(HttpServletRequest request, Model model, @PageableDefault(size=5, sort="id", direction = Sort.Direction.DESC) Pageable pageable) {
 		model.addAttribute("boards",boardService.글목록(pageable));
@@ -43,16 +40,14 @@ public class IndexController {
 	
 	
 //	테스트 페이지
-	
 	@GetMapping("test")
 	public String test() {
-		return "test";
+		return "/test/test";
 	}
 	
-	@GetMapping("testSearch")
-	public String testSearch(Model model) {
-		model.addAttribute("users",userService.유저목록());
-		return "testSearch";
+	@GetMapping("testModal")
+	public String testModal() {
+		return "/test/testModal";
 	}
 	
 }

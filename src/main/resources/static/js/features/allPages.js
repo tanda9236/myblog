@@ -1,3 +1,4 @@
+// Top버튼
 var scr_btn = document.getElementById('scr_btn'),
 	docElem = document.documentElement,
 	offset,

@@ -6,7 +6,8 @@ public class NaverUserInfo implements OAuth2UserInfo{
 
 	private Map<String, Object> attributes;
 	
-	// {id=qCo0hz7H8ooU_yJsJEvmXnbhpF8U2Eml0XumaE61ogc, email=loir92@naver.com, name=이슬기}
+	// {id=qCo0hz7H8ooU_yJsJEvmXnbhpF8U2Eml0XumaE61ogc,
+	//  email=loir92@naver.com, name=이슬기}
 	public NaverUserInfo(Map<String, Object> attributes) {
 		this.attributes = attributes;
 	}

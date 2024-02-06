@@ -11,6 +11,7 @@ let index = {
 		});
 	},
 	
+	// 회원가입
 	save: function(){
 		let username = $("#username").val();
 		let password = $("#password").val();
@@ -59,7 +60,8 @@ let index = {
 			alert(JSON.stringify(error));
 		});
 	},
-	
+		
+		// 프로필 수정(닉네임, 사진, 소개)
 		updateNickname: function() {
 	    let nickname = $("#nickname").val();
 	    if (!nickname || nickname.length < 2 || nickname.length > 18) {
@@ -89,6 +91,7 @@ let index = {
 	    });
 	},
 
+	// 프로필 수정(비밀번호)
 	updatePass: function(){
 		let pass = $("#password").val();
 		let passCheck = $("#passwordCheck").val();

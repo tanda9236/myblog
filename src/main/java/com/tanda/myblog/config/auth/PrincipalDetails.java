@@ -71,7 +71,7 @@ public class PrincipalDetails implements UserDetails, OAuth2User{
 		return true;
 	}
 	
-// OAuth2User ============================================================================//
+// ================ OAuth2User ================ //
 	
 	@Override
 	public Map<String, Object> getAttributes() {
