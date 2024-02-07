@@ -1090,7 +1090,7 @@ mark {
 }
 
 /* ======================== 모달창 ======================== */
-.modal {
+.my-modal {
 	display: none;
 	position: fixed;
 	z-index: 1001;

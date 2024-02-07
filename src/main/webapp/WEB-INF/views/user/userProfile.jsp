@@ -56,6 +56,7 @@
 						<p><input id="nickname" class="my-profile-input" type="text" value="${user.nickname}" maxlength="18"></p>
 						<input type="hidden" id="id" value="${principal.user.id}" />
 						<input type="hidden" id="username" value="${principal.user.username}" />
+						<input type="hidden" id="profilePath" value="${user.profilePath}" />
 					</div>
 					<div>
 						<p class="my-mb1">한 줄 소개</p>

@@ -6,6 +6,21 @@ server:
       charset: UTF-8
       enabled: true
       force: true
+
+cloud:
+  aws:
+    s3:
+      bucketname: tanda-myblog
+    credentials:
+      access-key: access-key
+      secret-key: secret-key
+    region:
+      static: ap-northeast-2
+      auto: false
+    stack:
+      auto: false
+
+
     
 spring:
   mvc:
@@ -16,8 +31,8 @@ spring:
       preferred-json-mapper: gson
   servlet:
     multipart:
-      max-file-size: 100MB
-      max-request-size: 100MB
+      max-file-size: 20MB
+      max-request-size: 20MB
     
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

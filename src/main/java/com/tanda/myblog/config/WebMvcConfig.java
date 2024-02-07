@@ -10,11 +10,11 @@ public class WebMvcConfig implements WebMvcConfigurer{
 	// localhost:8080/폴더명/파일명.jpg => C:/폴더명/파일명.jpg
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/summernoteImage/**")
-                .addResourceLocations("file:///C:/workspace/myProjectFile/summernote_image/");
+//        registry.addResourceHandler("/summernoteImage/**")
+//                .addResourceLocations("file:///C:/workspace/myProjectFile/summernote_image/");
         
-        registry.addResourceHandler("/profileImage/**")
-        		.addResourceLocations("file:///C:/workspace/myProjectFile/profile_image/");
+//        registry.addResourceHandler("/profileImage/**")
+//        		.addResourceLocations("file:///C:/workspace/myProjectFile/profile_image/");
     }// 경로수정시 FileManageController 확인
 	
-}
+}// S3 저장으로 안쓰는중

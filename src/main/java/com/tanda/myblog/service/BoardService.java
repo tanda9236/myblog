@@ -1,7 +1,5 @@
 package com.tanda.myblog.service;
 
-import java.util.List;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -46,11 +44,13 @@ public class BoardService {
         if (!imgTags.isEmpty()) {
             Element firstImgTag = imgTags.first();
             String src = firstImgTag.attr("src");
-            return src.startsWith("/") ? src : null;
+            return src.startsWith("http") ? src : null;
         } else {
             return null;
         }
     }// 썸네일 추출 메서드
+	
+	
 	
 	@Transactional(readOnly = true)
 	public Page<Board> 글목록(Pageable pageable){

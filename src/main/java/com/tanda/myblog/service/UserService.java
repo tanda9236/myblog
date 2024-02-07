@@ -1,16 +1,22 @@
 package com.tanda.myblog.service;
 
-import java.io.File;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.CannedAccessControlList;
+import com.amazonaws.services.s3.model.DeleteObjectRequest;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.tanda.myblog.model.User;
 import com.tanda.myblog.repository.UserRepository;
 
@@ -25,6 +31,11 @@ public class UserService {
 	
 	@Autowired
 	private BCryptPasswordEncoder encoder;
+	
+	private final AmazonS3 amazonS3;
+	
+	@Value("${cloud.aws.s3.bucketname}")
+	private String bucketName;
 	
 	@Transactional
 	public int 회원가입(User user) {
@@ -59,38 +70,54 @@ public class UserService {
 		persistence.setIntro(user.getIntro());
 		return persistence; // 변경된 사용자 객체 반환
 	}// 프로필 수정(닉네임)
+
+	private String changedImageName(String originName) {
+        String random = UUID.randomUUID().toString();
+        return random + originName.substring(originName.lastIndexOf("."));
+    }// 이미지 이름 중복방지 랜덤생성
 	
+	private String uploadImageToS3(MultipartFile file) {
+        String originName = file.getOriginalFilename();
+        String changedName = changedImageName(originName);
+        
+        ObjectMetadata metadata = new ObjectMetadata();
+        metadata.setContentType(file.getContentType());
+        metadata.setContentLength(file.getSize());
+        
+        try {
+            amazonS3.putObject(new PutObjectRequest(bucketName, changedName, file.getInputStream(), metadata)
+                    .withCannedAcl(CannedAccessControlList.PublicRead));
+        } catch (IOException e) {
+            throw new IllegalArgumentException("이미지 업로드 중 오류 발생", e);
+        }
+        
+        return amazonS3.getUrl(bucketName, changedName).toString();
+    }// 이미지 S3에 업로드 후 url 반환
+
 	@Transactional
-	public User 닉네임수정(User user, MultipartFile file) throws Exception {
-	    User persistence = userRepository.findById(user.getId())
-	            .orElseThrow(() -> {
-	                return new IllegalArgumentException("회원찾기 실패 : 아이디를 찾을 수 없습니다.");
-	            });
-
-	    // 새 파일 저장
-	    UUID uuid = UUID.randomUUID();
-	    String newFileName = uuid + "_" + file.getOriginalFilename();
-	    String projectPath = "C:\\workspace\\myProjectFile\\profile_image\\";
-	    File newSaveFile = new File(projectPath, newFileName);
-	    file.transferTo(newSaveFile);
-
-	    // 이전 파일 삭제
-	    if (persistence.getProfileName() != null) {
-	        File oldFile = new File(projectPath, persistence.getProfileName());
-	        if (oldFile.exists()) {
-	            oldFile.delete();
-	        }
-	    }// 프로필 수정(닉네임, 소개, 이미지)
-
-	    System.out.println("새 파일 이름: " + newFileName);
-	    persistence.setProfileName(newFileName);
-	    persistence.setProfilePath("/profileImage/" + newFileName);
-	    persistence.setNickname(user.getNickname());
+    public User 닉네임수정(User user, MultipartFile file) {
+        User persistence = userRepository.findById(user.getId())
+                .orElseThrow(() -> new IllegalArgumentException("회원을 찾을 수 없습니다."));
+        String profileName = file.getOriginalFilename();
+        String profilePath = uploadImageToS3(file);
+        if (user.getProfilePath() != null) {
+        	deleteImage(persistence.getProfilePath());
+        }
+        persistence.setProfileName(profileName);
+        persistence.setProfilePath(profilePath);
+        persistence.setNickname(user.getNickname());
 	    persistence.setIntro(user.getIntro());
+        userRepository.save(persistence);
 
-	    return persistence; // 변경된 사용자 객체 반환
-	}
-
+        return persistence;
+    }// 프로필 수정 (닉네임, 사진, 소개)
+	
+	public void deleteImage(String profilePath) {
+		String splitStr = ".com/";
+        String key = profilePath.substring(profilePath.lastIndexOf(splitStr) + splitStr.length());
+        DeleteObjectRequest deleteRequest = new DeleteObjectRequest(bucketName, key);
+        amazonS3.deleteObject(deleteRequest);
+    }// (이미지 수정시 S3 이미지 삭제)
 	
 	@Transactional
 	public void 비밀번호수정(User user) {

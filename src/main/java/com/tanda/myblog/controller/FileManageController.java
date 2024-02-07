@@ -1,51 +1,59 @@
 package com.tanda.myblog.controller;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.google.gson.JsonObject;
-import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.UUID;
 
 @Controller
 public class FileManageController {
+	
+	@Autowired
+    private AmazonS3 amazonS3;
 
-	@PostMapping(value="/uploadSummernoteImageFile", produces = "application/json")
+    @Value("${cloud.aws.s3.bucketname}")
+    private String bucketName;
+	
+    @PostMapping(value="/uploadSummernoteImageFile", produces = "application/json")
     @ResponseBody
     public JsonObject uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile) {
 
         JsonObject jsonObject = new JsonObject();
-        // 경로 수정시 WebMvcConfig경로도 확인하기
-        String fileRoot = "//C:/workspace/myProjectFile/summernote_image/";	//저장될 파일 경로
 
-        String originalFileName = multipartFile.getOriginalFilename();	//오리지날 파일명
-        String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//파일 확장자
-
-        // 랜덤 UUID+확장자로 저장될 savedFileName
-        String savedFileName = UUID.randomUUID() + extension;	
-        
-        File targetFile = new File(fileRoot + savedFileName);
+        String originalFileName = multipartFile.getOriginalFilename();
+        String extension = FilenameUtils.getExtension(originalFileName);
+        String savedFileName = UUID.randomUUID().toString() + "." + extension;
 
         try {
-            InputStream fileStream = multipartFile.getInputStream();
-            FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
-            jsonObject.addProperty("url", "/summernoteImage/"+savedFileName);
+            // S3에 업로드
+            ObjectMetadata metadata = new ObjectMetadata();
+            metadata.setContentType(multipartFile.getContentType());
+            metadata.setContentLength(multipartFile.getSize());
+
+            amazonS3.putObject(new PutObjectRequest(bucketName, savedFileName, multipartFile.getInputStream(), metadata));
+
+            // URL 설정
+            String imageUrl = amazonS3.getUrl(bucketName, savedFileName).toString();
+            jsonObject.addProperty("url", imageUrl);
             jsonObject.addProperty("responseCode", "success");
 
         } catch (IOException e) {
-            FileUtils.deleteQuietly(targetFile);	// 실패시 저장된 파일 삭제
             jsonObject.addProperty("responseCode", "error");
             e.printStackTrace();
         }
 
         return jsonObject;
-    }
-	
-	
+    }// 썸머노트 이미지 S3 저장
+
 }

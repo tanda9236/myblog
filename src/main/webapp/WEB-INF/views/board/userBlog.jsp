@@ -123,7 +123,7 @@
 <!-- 페이지 내용 end -->
 
 <!-- Modal Start -->
-<div id="myModal" class="modal">
+<div id="myModal" class="my-modal">
 	<div class="my-modal-content">
 		<span class="md-close">&times;</span>
 		<div class="donate-info">

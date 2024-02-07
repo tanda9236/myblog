@@ -74,6 +74,7 @@ let index = {
 	    formData.append("nickname", nickname);
 	    formData.append("intro", $("#intro").val());
 	    formData.append("file", $("#file")[0].files[0]);
+	    formData.append("profilePath", $("#profilePath").val()); // S3 삭제에 필요
 
 	    $.ajax({
 	        type: "PUT",
