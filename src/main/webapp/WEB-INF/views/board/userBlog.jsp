@@ -7,15 +7,27 @@
 	<div class="my-header-text my-bg-img2">
 		<h1>${user.nickname}의 블로그</h1>
 		<h4 class="mb-0 my-mt0">${user.intro}</h4>
+		<div class="blog-header-btn">
+		<c:if test="${user.id == principal.user.id}">
+			<a href="/board/blogWrite" class="btn btn-success succ my-h40 my-mr0">글쓰기</a>
+		</c:if>
+		<c:choose>
+			<c:when test="${empty principal}">
+				<a class="btn btn-danger my-h40 dang" onclick="alert('로그인 후 이용하실 수 있습니다.')">후원</a>
+			</c:when>
+			<c:otherwise>
+				<a class="btn btn-danger my-h40 dang" onclick="openDonate()">후원</a>
+			</c:otherwise>
+		</c:choose>
+		</div>
 	</div>
 </header>
 <!-- 페이지 태그라인 end -->
 
 <!-- 페이지 내용 start -->
 <div class="container">
-	<div class="row">
-		<!-- 페이지 내용 (좌측) start -->
-		<div class="col-lg-8">
+	<div class="row" style="justify-content: center;">
+		<div class="col-lg-9">
 		<c:choose>
     	<c:when test="${not empty boards.content}">
 			<!-- 글리스트 start -->
@@ -51,7 +63,7 @@
 								<div class="card-text my-postInfo-content">${board.content}</div>
 							</div>
 							<div class="my-end my-font-small">
-								<p>댓글 ${board.replyCount} 좋아요 0</p>
+								<p>댓글 ${board.replyCount} 좋아요 ${board.likeCount}</p>
 								<a class="btn btn-dark my-ml1" href="/${board.user.id}/board/${board.id}">More ></a>
 							</div>
 						</div>
@@ -106,41 +118,6 @@
    		 	</c:otherwise>
 		</c:choose>
 		</div>
-		<!-- 페이지 내용 (좌측) end -->
-		
-		<!-- 페이지 내용 (우측) start -->
-		<div class="col-lg-4">
-			<div class="card mb-4"> <!-- Widget 1 -->
-				<div class="card-header my-card-header">카테고리</div>
-				<div class="card-body my-catrgory-box">
-					<div class="my-category">
-						<a href="#!" class="btn btn-primary" onclick="alert('준비중!')">준비중</a>
-						<a href="#!" class="btn btn-primary" onclick="alert('준비중!')">준비중</a>
-						<c:choose>
-							<c:when test="${empty principal}">
-								<a class="btn btn-danger" onclick="alert('로그인 후 이용하실 수 있습니다.')">후원</a>
-							</c:when>
-							<c:otherwise>
-								<a class="btn btn-danger" onclick="openDonate()">후원</a>
-							</c:otherwise>
-						</c:choose>
-					</div>
-					<div class="my-category-down">
-						<a href="/board/blogWrite" class="btn btn-success">글쓰기</a>
-					</div>
-				</div>
-			</div>
-			<div class="card mb-4"> <!-- Widget 2 -->
-			<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
-				<div class="card-header my-card-header">추천</div>
-				<div class="card-body">...</div>
-			</div>
-			<div class="card mb-4"> <!-- Widget 3 -->
-				<div class="card-header my-card-header">위젯</div>
-				<div class="card-body">기타 API</div>
-			</div>
-		</div>
-		<!-- 페이지 내용 (우측) end -->
 	</div>
 </div>
 <!-- 페이지 내용 end -->
@@ -173,12 +150,6 @@
 	</div>
 </div>
 <!-- Modal End -->
-
-<div class="my-side-btn">
-	<a id="scr_btn" href="#">
-		<img src="../image/top.png" alt="top">
-	</a>
-</div>
 
 <script src="/js/features/modal.js"></script>
 <%@ include file="../layout/footer.jsp"%>

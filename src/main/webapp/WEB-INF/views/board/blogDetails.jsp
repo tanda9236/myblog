@@ -14,7 +14,7 @@
 	<button id="btn-delete" class="side-write my-bg-danger">
 		del
 	</button>
-</div>
+</div> 
 </c:if>
 
 <div class="my-details-body">
@@ -23,8 +23,33 @@
 	<!-- 글상세내용 start -->
 	<div class="my-details-middle">
 		<div class="my-details-title">${board.title}</div>
-		<div class="my-details-info">
-		<a class="my-writer" href="/${board.user.id}">${board.user.nickname}</a> · ${formattedDate} · 조회수 : ${board.count}<span id="id" style="display: none;">${board.id}</span></div>
+		<div class="my-sb-row">
+			<div class="my-details-info">
+				<a class="my-writer" href="/${board.user.id}">${board.user.nickname}</a> / ${formattedDate} / 조회수 : ${board.count} / 좋아요 : ${board.likeCount}<span id="id" style="display: none;">${board.id}</span>
+			</div>
+			<div>
+				<div class='middle-wrapper'> <!-- 좋아요 버튼 -->
+				<input id="boardId" type="hidden" value="${board.id}">
+				<c:set var="buttonId" value="${liked == 1 ? 'btn-unlike' : 'btn-like'}"/>
+				<c:set var="buttonClass" value="like-button${liked == 1 ? ' liked' : ''}"/>
+				<c:set var="buttonText" value="${liked == 1 ? 'Liked' : 'Like'}"/>
+				<c:choose>
+				    <c:when test="${not empty principal}">
+				        <div id="${buttonId}" class="${buttonClass}">
+				            <div class='like-icon'></div>
+				            ${buttonText}
+				        </div>
+				    </c:when>
+				    <c:otherwise>
+				        <div class='like-button' onclick="alert('로그인 후 이용하실 수 있습니다.')">
+				            <div class='like-icon'></div>
+				            ${buttonText}
+				        </div>
+				    </c:otherwise>
+				</c:choose>
+				</div>
+			</div>
+		</div>
 		<div class="my-details-content">${board.content}</div>
 	</div>
 	<div class="my-box-end"></div>
@@ -40,7 +65,7 @@
 			</div>
 		</div>
 		<div class="">
-			<button class="btn btn-dark my-ml1"><span>팔로우</span></button>
+<!-- 			<button class="btn btn-dark my-ml1"><span>팔로우</span></button> -->
 		</div>
 	</div>
 	<!-- 글쓴이 소개 end -->
@@ -91,9 +116,10 @@
 	</div>
 	</c:forEach>
 	<!-- 댓글리스트 end -->
-
 </div>
 </div>
 
+
+<script src="/js/likeboard.js"></script>
 <script src="/js/board.js"></script>
 <%@ include file="../layout/footer.jsp"%>

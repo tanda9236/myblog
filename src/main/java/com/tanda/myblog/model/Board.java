@@ -65,4 +65,16 @@ public class Board {
     }
     
     private String thumbnail;
+    
+    
+    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties({"board"})
+    private List<LikeBoard> likes;
+
+    @Transient // 좋아요 개수 DB매핑 방지
+    private int likeCount;
+
+    public int getLikeCount() {
+        return likes != null ? likes.size() : 0;
+    }
 }

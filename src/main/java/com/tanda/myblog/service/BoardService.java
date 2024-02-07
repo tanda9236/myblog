@@ -1,5 +1,7 @@
 package com.tanda.myblog.service;
 
+import java.util.List;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -11,8 +13,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.tanda.myblog.dto.ReplySaveRequestDto;
 import com.tanda.myblog.model.Board;
+import com.tanda.myblog.model.LikeBoard;
 import com.tanda.myblog.model.User;
 import com.tanda.myblog.repository.BoardRepository;
+import com.tanda.myblog.repository.LikeBoardRepository;
 import com.tanda.myblog.repository.ReplyRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -24,6 +28,7 @@ public class BoardService {
 
 	private final BoardRepository boardRepository;
 	private final ReplyRepository replyRepository;
+	private final LikeBoardRepository likeBoardRepository;
 	
 	@Transactional
 	public void 글쓰기(Board board, User user) {
@@ -111,4 +116,24 @@ public class BoardService {
         boardRepository.save(board);
     }// 조회수 증가
 
+	@Transactional
+	public void 좋아요추가(User user, int boardId, LikeBoard requestLikeBoard) {
+		Board board = boardRepository.findById(boardId).orElseThrow(()->{
+			return new IllegalArgumentException("실패 : 게시글 아이디를 찾을 수 없습니다.");
+		});
+		requestLikeBoard.setUser(user);
+		requestLikeBoard.setBoard(board);
+		
+		likeBoardRepository.save(requestLikeBoard);
+	}// 좋아요 추가
+	
+	@Transactional
+    public void 좋아요취소(int boardId, int userId) {
+        likeBoardRepository.unlike(boardId, userId);
+    }// 좋아요 취소
+	
+	@Transactional(readOnly = true)
+	public int 좋아요유무(int boardId, int userId){
+		return likeBoardRepository.findByBoardId(boardId, userId);
+	}// 좋아요 유무 확인
 }

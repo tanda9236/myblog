@@ -434,6 +434,16 @@ hr {
 	margin: 0;
 }
 
+.blog-header-btn{
+	width:100%;
+	height:inherit;
+	position:absolute;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	margin: 0px 40px 30px 0px;
+}
+
 .my-category {
 	padding: 0;
 	display: flex;
@@ -450,7 +460,8 @@ hr {
 
 .my-catrgory-box {
 	padding: 8px 3px 8px 3px;
-	height: 125px;
+/* 	height: 125px; */
+	height: 66px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -481,7 +492,7 @@ hr {
 	text-decoration: none;
 	color: white;
 	margin: 0;
-	width: 96.5%;
+	width: 47%;
 	height: 50px;
 	display: flex;
 	align-items: center;
@@ -603,12 +614,48 @@ hr {
 	border-radius: 10px;
 }
 /* ======================== ... ======================== */
+
+.dang{
+	background: linear-gradient(to right, #bb2a2a, #992a2a);
+	border: #bb2a2a;
+}
+.dang:hover {
+	background: linear-gradient(to right, #dd2a2a, #cc2a2a);
+}
+
+.prim{
+	background: linear-gradient(to right, #2a2abb, #2a2a99);
+	border: #2a2abb;
+}
+
+.prim:hover {
+	background: linear-gradient(to right, #2a2add, #2a2acc);
+}
+
+
+.succ {
+	background: linear-gradient(to right, #238823, #226622);
+	border: #238823;
+}
+
+.succ:hover {
+	background: linear-gradient(to right, #229922, #23aa23);
+}
+
+.my-h40{
+	height: 40px;
+}
+
 .my-box-underline {
 	border-bottom: #212529 1.5px solid;
 }
 
 .my-w2 {
 	width: 520px;
+}
+
+.my-mr0 {
+	margin-right: 8px;
 }
 
 .my-mr1 {
@@ -674,6 +721,12 @@ hr {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: flex-end;
+}
+.my-sb-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .my-fc-71 {
@@ -1189,4 +1242,84 @@ to {
 	-webkit-mask-position: 0 0;
 	mask-position: 0 0;
 }
+}
+/* ====================== 애니메이션 버튼 2 (좋아요)  ====================== */
+.middle-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.like-button {
+	border: 2px solid #c7c7c7;
+	border-radius: 40px;
+	padding: 0.45rem 0.75rem;
+	color: #878787;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	filter: grayscale(100%);
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+    	-ms-user-select: none;
+            user-select: none;
+	cursor: pointer;
+	height: 35px;
+}
+.like-button.liked {
+  color: #ff6e6f;
+  border-color: currentColor;
+  filter: grayscale(0);
+}
+.like-button:hover {
+  border-color: currentColor;
+}
+
+.like-icon {
+  width: 18px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+  margin-right: 0.25em;
+  font-size: 1.5rem;
+  background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAyMSAxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAuMTAxIDQuNDE3UzguODk1LjIwNyA1LjExMS4yMDdjLTQuNDY1IDAtMTAuOTY3IDYuODQ2IDUuMDgyIDE3LjU5MkMyNS4yMzcgNy4wMyAxOS42NjUuMjAyIDE1LjUwMS4yMDJjLTQuMTYyIDAtNS40IDQuMjE1LTUuNCA0LjIxNXoiIGZpbGw9IiNGRjZFNkYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==") no-repeat center;
+  background-size: 100%;
+  -webkit-animation: heartUnlike 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+          animation: heartUnlike 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+.liked .like-icon {
+  -webkit-animation: heartPulse 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+          animation: heartPulse 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@-webkit-keyframes heartPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+}
+@keyframes heartPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+}
+
+@-webkit-keyframes heartUnlike {
+  50% {
+    transform: scale(0.75);
+  }
+}
+@keyframes heartUnlike {
+  50% {
+    transform: scale(0.75);
+  }
 }

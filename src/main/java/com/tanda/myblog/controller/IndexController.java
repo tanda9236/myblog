@@ -40,14 +40,9 @@ public class IndexController {
 	
 	
 //	테스트 페이지
-	@GetMapping("test")
-	public String test() {
-		return "/test/test";
-	}
-	
-	@GetMapping("testModal")
-	public String testModal() {
-		return "/test/testModal";
-	}
+//	@GetMapping("test")
+//	public String test() {
+//		return "/test/test";
+//	}
 	
 }

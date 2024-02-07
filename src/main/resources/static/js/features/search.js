@@ -1,8 +1,6 @@
 // 검색(닉네임)
 const dataList = userListNickname;
 const dataUrl = userListId;
-console.log(dataList);
-console.log(dataUrl);
 
 const $search = document.querySelector("#search");
 const $autoComplete = document.querySelector(".autocomplete");
